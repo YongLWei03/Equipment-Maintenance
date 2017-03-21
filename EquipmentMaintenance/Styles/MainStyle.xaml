@@ -2,14 +2,22 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:EquipmentMaintenance">
-    
+
+    <SolidColorBrush x:Key="jp_Backgroud" Color="#697d83"/>
+    <SolidColorBrush x:Key="jp_Border" Color="#697d83"/>
+    <SolidColorBrush x:Key="jp_Foreground" Color="#333"/>
+
+
+    <SolidColorBrush x:Key="jp_ButtonHover" Color="#11A0CB"/>
+    <SolidColorBrush x:Key="jp_ButtonClick" Color="#0f8db3"/>
+
     <Style TargetType="Border">
-        <Setter Property="Background" Value="#607278"/>
+        <Setter Property="Background" Value="{StaticResource jp_Backgroud}"/>
         <Setter Property="Margin" Value="0,0,15,10"/>
     </Style>
     
     <Style TargetType="Border" x:Key="jp_BorderLine">
-        <Setter Property="BorderBrush" Value="#607278"/>
+        <Setter Property="BorderBrush" Value="{StaticResource jp_Backgroud}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
         <Setter Property="Margin" Value="0,10"/>
     </Style>
@@ -20,9 +28,18 @@
         <Setter Property="Margin" Value="5,0"/>
     </Style>
 
+    <Style TargetType="TextBlock" x:Key="jp_TextBlockTitle">
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="Width" Value="32"/>
+        <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
+        <Setter Property="Margin" Value="5,0"/>
+    </Style>
+
     <Style TargetType="TextBox">
-        <Setter Property="Foreground" Value="#5F5F5F"/>
-        <Setter Property="BorderBrush" Value="#607278"/>
+        <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource jp_Border}"/>
         <Setter Property="BorderThickness" Value="0,0,0,0.5"/>
         <Setter Property="Padding" Value="6"/>
         <Setter Property="Margin" Value="0,0,25,10"/>
@@ -54,20 +71,20 @@
                                 <VisualState x:Name="Normal" />
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="backgroudButton"  Storyboard.TargetProperty="Color" To="#11A0CB" />
+                                        <ColorAnimation Storyboard.TargetName="backgroudButton"  Storyboard.TargetProperty="Color" To="{Binding Source={StaticResource jp_ButtonHover}}" />
                                     </Storyboard>
                                 </VisualState>
                                 
                                 <VisualState x:Name="Pressed">
                                     <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="backgroudButton"  Storyboard.TargetProperty="Color" To="#11A0CB"/>
+                                        <ColorAnimation Storyboard.TargetName="backgroudButton"  Storyboard.TargetProperty="Color" To="{Binding Source={StaticResource jp_ButtonClick}}" />
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
                         
                         <Border.Background>
-                            <SolidColorBrush x:Name="backgroudButton" Color="#13B2E2"/>
+                            <SolidColorBrush x:Name="backgroudButton" Color="#1dbcec"/>
                         </Border.Background>
                     </Border>
                 </ControlTemplate>

@@ -7,8 +7,8 @@
     <ProjectGuid>{102A1879-D557-439C-ADE0-44EAA44C8AA9}</ProjectGuid>
     <OutputType>AppContainerExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>App2</RootNamespace>
-    <AssemblyName>App2</AssemblyName>
+    <RootNamespace>EquipmentMaintenance</RootNamespace>
+    <AssemblyName>EquipmentMaintenance</AssemblyName>
     <DefaultLanguage>en-US</DefaultLanguage>
     <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
     <TargetPlatformVersion>10.0.10586.0</TargetPlatformVersion>

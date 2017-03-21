@@ -30,7 +30,7 @@ namespace App2
 
             YFormatter = value => value.ToString("C");
             SeriesCollection = CarManager.GetCharts();
-            this.DataContext = this;
+            //this.DataContext = this;
         }
 
         private static List<string> _labels;

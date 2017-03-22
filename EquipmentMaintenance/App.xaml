@@ -7,12 +7,9 @@
     <Application.Resources>
         <!-- Application-specific resources -->
         <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
+            <local:AlternatingIndexConverter x:Key="ColorConvert"/>
 
-                <!-- 
-                    Styles that define common aspects of the platform look and feel
-                    Required by Visual Studio project and item templates
-                 -->
+            <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles/MainStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

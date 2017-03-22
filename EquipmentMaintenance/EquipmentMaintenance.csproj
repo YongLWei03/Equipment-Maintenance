@@ -95,13 +95,13 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Behaviors\ListViewBehavior.cs" />
     <Compile Include="Controls\SensorDetails.xaml.cs">
       <DependentUpon>SensorDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\SensorDevices.xaml.cs">
       <DependentUpon>SensorDevices.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Converter\AlternateConverter.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

@@ -3,13 +3,15 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:EquipmentMaintenance">
 
-    <SolidColorBrush x:Key="jp_Backgroud" Color="#697d83"/>
-    <SolidColorBrush x:Key="jp_Border" Color="#697d83"/>
+    <SolidColorBrush x:Key="jp_Backgroud" Color="#697D83"/>
+    <SolidColorBrush x:Key="jp_AltBackgroud" Color="#D2D2D2"/>
+    <SolidColorBrush x:Key="jp_AltBorder" Color="#DDD"/>
+    <SolidColorBrush x:Key="jp_Border" Color="#697D83"/>
     <SolidColorBrush x:Key="jp_Foreground" Color="#333"/>
 
 
     <SolidColorBrush x:Key="jp_ButtonHover" Color="#11A0CB"/>
-    <SolidColorBrush x:Key="jp_ButtonClick" Color="#0f8db3"/>
+    <SolidColorBrush x:Key="jp_ButtonClick" Color="#0F8DB3"/>
 
     <Style TargetType="Border">
         <Setter Property="Background" Value="{StaticResource jp_Backgroud}"/>

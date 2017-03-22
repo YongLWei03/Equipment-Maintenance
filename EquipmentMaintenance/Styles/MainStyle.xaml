@@ -53,16 +53,18 @@
 
     <Style TargetType="Button">
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Padding" Value="6"/>
         <Setter Property="Margin" Value="0,0,25,10"/>
+        <Setter Property="Width" Value="Auto"/>
+        <Setter Property="Height" Value="32"/>
         <Setter Property="BorderThickness" Value="0.2"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border Name="rootButton" BorderThickness="{TemplateBinding BorderThickness}" 
-                            BorderBrush="{StaticResource jp_ButtonBorder}"
-                            Padding="{TemplateBinding Padding}" CornerRadius="3">
-
+                    <Border BorderBrush="{StaticResource jp_ButtonBorder}" CornerRadius="2" >
+                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                          BorderThickness="{TemplateBinding BorderThickness}"
+                                          Padding="15,0"
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/> 
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 

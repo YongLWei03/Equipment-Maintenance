@@ -10,16 +10,16 @@
 
     <ScrollViewer>
         <Grid>
-            <Grid.Resources>
-                <Style TargetType="TextBlock"/>
-            </Grid.Resources>
-
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" Height="Auto">
+                <Grid.Resources>
+                    <Style TargetType="TextBlock"/>
+                </Grid.Resources>
+                
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -117,12 +117,12 @@
                                 </Grid.Resources>
 
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="4*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
 
                                 <Border Grid.Row="0">
@@ -161,7 +161,7 @@
                                         <Setter Property="BorderBrush" Value="Transparent"/>
                                         <Setter Property="Margin" Value="15,0"/>
                                         <Setter Property="VerticalAlignment" Value="Center"/>
-                                        <Setter Property="VerticalContentAlignment" Value="Center"/>
+                                        <Setter Property="VerticalContentAlignment" Value="Bottom"/>
                                         <Setter Property="BorderThickness" Value="1"/>
                                         <Setter Property="TextWrapping" Value="Wrap"/>
                                     </Style>
@@ -174,12 +174,12 @@
                                 </Grid.Resources>
 
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="70"/>
+                                    <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="4*"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition Width="Auto"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
                                 
                                 <Border Grid.Column="0">
@@ -206,18 +206,11 @@
                 </ListView>
             </Grid>
 
-            <Grid Grid.Row="4" Margin="0,20">
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
+            <StackPanel Grid.Row="2" Orientation="Horizontal">
                 <Button>正方形/長方形 15</Button>
-                <Button Grid.Column="1">正方形/長方形 30</Button>
+                <Button>正方形/長方形 30</Button>
                 <Button Grid.Column="2">正方形/長方形 32</Button>
-            </Grid>
+            </StackPanel>
         </Grid>
     </ScrollViewer>
     

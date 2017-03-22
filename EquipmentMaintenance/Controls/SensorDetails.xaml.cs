@@ -1,7 +1,13 @@
 ﻿using LiveCharts;
+using LiveCharts.Configurations;
 using LiveCharts.Uwp;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
+using Windows.ApplicationModel.Core;
+using Windows.UI.Core;
+using Windows.UI.ViewManagement;
+using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
@@ -13,89 +19,141 @@ namespace EquipmentMaintenance
     /// </summary>
     public sealed partial class SensorDetails : Page
     {
+        private double _axisMax = 100;
+        private double _axisMin = 60;
         public SensorDetails()
         {
             this.InitializeComponent();
+
+            var mapper = Mappers.Xy<MeasureModel>()
+                .X(model => model.DateTime.Ticks)   //use DateTime.Ticks as X
+                .Y(model => model.Value);           //use the value property as Y
+
+            //lets save the mapper globally.
+            Charting.For<MeasureModel>(mapper);
+
+
+            //the values property will store our values array
+            ChartValues = new ChartValues<MeasureModel>();
+
+            //lets set how to display the X Labels
+            DateTimeFormatter = value => new DateTime((long)(value)).ToString("MM/dd");
+
+            AxisStep = TimeSpan.FromSeconds(1).Ticks;
+            SetAxisLimits(DateTime.Now);
+
+            //The next code simulates data changes every 300 ms
+            Timer = new DispatcherTimer
+            {
+                Interval = TimeSpan.FromMilliseconds(5)
+            };
+            Timer.Tick += TimerOnTick;
+            IsDataInjectionRunning = false;
+            R = new Random();
+
+            DataContext = this;
             this.DataContext = this;
         }
 
-        private static List<string> _labels = new List<string> { "温度高", "振動大", ":" };
-        public static List<string> Labels { get { return _labels; } }
 
-        
-        public static ChartValues<CarDetail> CarDetails { get { return _carDetails; } }
-        private static ChartValues<CarDetail> _carDetails = new ChartValues<CarDetail> {
-            new CarDetail
-            {
-                Pro1 = new DateTime(2016, 10, 5,5,30,0,0, DateTimeKind.Utc),
-                Pro2 = "温度高", Val = 21
-            },
-            new CarDetail
-            {
-                Pro1 = new DateTime(2016, 6, 6, 11, 3, 0, 0, DateTimeKind.Utc),
-                Pro2 = "温度高",
-                Val = 2
-            },
-            new CarDetail
-            {
-                Pro1 = new DateTime(2016, 6, 13, 23, 30, 0, 0, DateTimeKind.Utc),
-                Pro2 = "振動大",
-                Val = 3
-            },
-            new CarDetail
-            {
-                Pro1 = new DateTime(2016, 6, 13, 23, 30, 0, 0, DateTimeKind.Utc),
-                Pro2 = "振動大",
-                Val = 3
-            },
-            new CarDetail
-            {
-                Pro1 = new DateTime(2016, 6, 13, 23, 30, 0, 0, DateTimeKind.Utc),
-                Pro2 = "振動大",
-                Val = 4
-            },
-            new CarDetail
-            {
-                Pro1 = new DateTime(2016, 6, 13, 23, 30, 0, 0, DateTimeKind.Utc),
-                Pro2 = "振動大",
-                Val = 5
-            },
-            new CarDetail
-            {
-                Pro1 = new DateTime(2016, 6, 13, 23, 30, 0, 0, DateTimeKind.Utc),
-                Pro2 = "振動大",
-                Val = 7
-            },
-            new CarDetail { Pro2 = ":" },
-            new CarDetail { Pro2 = ":" },
-            new CarDetail { Pro2 = ":" },
-            new CarDetail { Pro2 = ":" },
-            new CarDetail { Pro2 = ":" }
-        };
 
-        public SeriesCollection SeriesCollection { get { return _seriiesCollection; } }
-        private SeriesCollection _seriiesCollection = new SeriesCollection {
-            new LineSeries
+        public ChartValues<MeasureModel> ChartValues { get; set; }
+        public Func<double, string> DateTimeFormatter { get; set; }
+
+        public double AxisStep { get; set; }
+
+        public double AxisMax
+        {
+            get { return _axisMax; }
+            set
             {
-                Title = "Series 1",
-                Values = new ChartValues<double> { 4, 6, 5, 2 ,4 }
-            },
-            new LineSeries
-            {
-                Title = "Series 2",
-                Values = new ChartValues<double> { 6, 7, 3, 4 ,6 },
-                PointGeometry = DefaultGeometries.None
-            },
-            new LineSeries
-            {
-                Title = "Series 3",
-                Values = new ChartValues<double> { 4,2,7,2,7 },
-                PointGeometry = DefaultGeometries.Square,
-                PointGeometrySize = 15
+                _axisMax = value;
+                OnPropertyChanged("AxisMax");
             }
-        };
+        }
+        public double AxisMin
+        {
+            get { return _axisMin; }
+            set
+            {
+                _axisMin = value;
+                OnPropertyChanged("AxisMin");
+            }
+        }
 
-        public Func<double, string> YFormatter { get; set; } = value => value.ToString("C");
+        public DispatcherTimer Timer { get; set; }
+        public bool IsDataInjectionRunning { get; set; }
+        public Random R { get; set; }
+
+        private void RunDataOnClick(object sender, RoutedEventArgs e)
+        {
+            if (IsDataInjectionRunning)
+            {
+                Timer.Stop();
+                IsDataInjectionRunning = false;
+            }
+            else
+            {
+                Timer.Start();
+                IsDataInjectionRunning = true;
+            }
+        }
+
+        private void TimerOnTick(object sender, object eventArgs)
+        {
+            var now = DateTime.Now;
+
+            ChartValues.Add(new MeasureModel
+            {
+                DateTime = now,
+                Value = R.Next(0, 10)
+            });
+
+            SetAxisLimits(now);
+
+            //lets only use the last 30 values
+            if (ChartValues.Count > 30) ChartValues.RemoveAt(0);
+        }
+
+        private void SetAxisLimits(DateTime now)
+        {
+            AxisMax = now.Ticks + TimeSpan.FromSeconds(1).Ticks; // lets force the axis to be 100ms ahead
+            AxisMin = now.Ticks - TimeSpan.FromSeconds(8).Ticks; //we only care about the last 8 seconds
+        }
+
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        public void OnPropertyChanged(string propertyName = null)
+        {
+            if (PropertyChanged != null)
+                PropertyChanged.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private async void BackToListCommand(object sender, RoutedEventArgs e)
+        {
+            var viewId = 0;
+
+            var newView = CoreApplication.CreateNewView();
+            await newView.Dispatcher.RunAsync( CoreDispatcherPriority.Normal, () =>
+                {
+                    var frame = new Frame();
+                    frame.Navigate(typeof(SensorDevices));
+                    Window.Current.Content = frame;
+
+                    viewId = ApplicationView.GetForCurrentView().Id;
+
+                    ApplicationView.GetForCurrentView().Consolidated += App.ViewConsolidated;
+
+                    Window.Current.Activate();
+                });
+
+            var viewShown = await ApplicationViewSwitcher.TryShowAsStandaloneAsync(viewId);
+        }
+
+        private void CloseCommand(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Exit();
+        }
     }
 
     public class CarDetail

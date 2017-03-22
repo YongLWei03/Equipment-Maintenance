@@ -89,6 +89,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="chart.json" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
@@ -96,6 +97,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Behaviors\ListViewBehavior.cs" />
+    <Compile Include="Controls\MeasureModel.cs" />
     <Compile Include="Controls\SensorDetails.xaml.cs">
       <DependentUpon>SensorDetails.xaml</DependentUpon>
     </Compile>

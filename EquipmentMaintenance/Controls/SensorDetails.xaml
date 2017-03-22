@@ -18,9 +18,18 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" Height="Auto">
+            <TextBlock Grid.Row="0" Style="{StaticResource jp_TextBlockTitle}" 
+                       HorizontalAlignment="Center">設備検査・メンテナンス</TextBlock>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Click="BackToListCommand">正方形/長方形 34</Button>
+                <Button Margin="0,0,0,10" Click="CloseCommand">正方形/長方形 3</Button>
+            </StackPanel>
+
+            <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -32,54 +41,70 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
                 <Border>
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">管理番号</TextBlock>
                 </Border>
-                <TextBox Grid.Row="0" Grid.Column="1" Text="EC0010"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="EC0010" IsReadOnly="True"/>
                 <Border Grid.Row="0" Grid.Column="2">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">設備名</TextBlock>
                 </Border>
-                <TextBox Grid.Row="0" Grid.Column="3" Text="噴出成形器 EC180SX"/>
+                <TextBox Grid.Row="0" Grid.Column="3" Text="噴出成形器 EC180SX" IsReadOnly="True"/>
 
                 <Border Grid.Row="1">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">設備状態</TextBlock>
                 </Border>
-                <TextBox Grid.Row="1"  Grid.Column="1" Text="異常なし"/>
+                <TextBox Grid.Row="1"  Grid.Column="1" Text="異常なし" IsReadOnly="True"/>
 
                 <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" Style="{StaticResource jp_BorderLine}"/>
 
                 <Border Grid.Row="3">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業者</TextBlock>
                 </Border>
-                <TextBox Grid.Row="3" Grid.Column="1" Text="東芝 一郎"/>
+                <TextBox Grid.Row="3" Grid.Column="1" Text="東芝 一郎" IsReadOnly="True"/>
                 <Border Grid.Row="3" Grid.Column="2">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業状態</TextBlock>
                 </Border>
-                <TextBox Grid.Row="3" Grid.Column="3" Text="作業中"/>
+                <TextBox Grid.Row="3" Grid.Column="3" Text="作業中" IsReadOnly="True"/>
             </Grid>
 
-            <Grid Grid.Row="2">
+            <Grid Grid.Row="3">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
 
-                <Grid Grid.Column="0">
-                    <!--<lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Right" >
-                        <lvc:CartesianChart.AxisY>
-                            <lvc:Axis Title="グラフを" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
-                        </lvc:CartesianChart.AxisY>
+                <Grid Grid.Row="0" Grid.Column="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition/>
+                    </Grid.RowDefinitions>
+
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0">
+                        <Button Margin="0,0,5,0">Graph1</Button>
+                        <Button Margin="0,0,5,0">Graph2</Button>
+                        <Button Margin="0,0,5,0">Graph3</Button>
+                    </StackPanel>
+                    <lvc:CartesianChart Grid.Row="1">
+                        <lvc:CartesianChart.Series>
+                            <lvc:LineSeries Values="{Binding ChartValues}" PointGeometrySize="18" StrokeThickness="4" />
+                        </lvc:CartesianChart.Series>
                         <lvc:CartesianChart.AxisX>
-                            <lvc:Axis Title="Month" Labels="{Binding Labels}"></lvc:Axis>
+                            <lvc:Axis LabelFormatter="{Binding DateTimeFormatter}" 
+                                      MaxValue="{Binding AxisMax}" 
+                                      MinValue="{Binding AxisMin}"
+                                      DisableAnimations="True">     
+                                <lvc:Axis.Separator>
+                                    <lvc:Separator Step="{Binding AxisStep}"></lvc:Separator>
+                                </lvc:Axis.Separator>
+                            </lvc:Axis>
                         </lvc:CartesianChart.AxisX>
-                    </lvc:CartesianChart>-->
+                    </lvc:CartesianChart>
                 </Grid>
 
-                <StackPanel Grid.Column="1">
+                <StackPanel Grid.Row="1" Grid.Column="1">
                     <TextBlock Style="{StaticResource jp_TextBlockTitle}" >センサー情報</TextBlock>
 
                     <ListView Name="lstView" IsItemClickEnabled="True" ItemsSource="{Binding Cars}">

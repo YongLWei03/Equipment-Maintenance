@@ -8,12 +8,5 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <Pivot x:Name="rootPivot">
-        <PivotItem Header="設備検査・メンテナンス">
-            <local:SensorDevices Margin="0,25,0,0"/>
-        </PivotItem>
-        <PivotItem Header="設備センサー情報">
-            <local:SensorDetails Margin="0,25,0,0"/>
-        </PivotItem>
-    </Pivot>
+    <local:SensorDevices/>
 </Page>

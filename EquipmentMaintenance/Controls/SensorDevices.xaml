@@ -8,18 +8,28 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <ScrollViewer>
+    <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Auto">
         <Grid>
             <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
                 <RowDefinition/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <Grid Grid.Row="0" Height="Auto">
+            <TextBlock Grid.Row="0" Style="{StaticResource jp_TextBlockTitle}" 
+                       HorizontalAlignment="Center">設備センサー情報</TextBlock>
+
+            <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button Click="GoToDetailCommand">正方形/長方形 34</Button>
+                <Button Margin="0,0,0,10" Click="CloseCommand">正方形/長方形 3</Button>
+            </StackPanel>
+
+            <Grid Grid.Row="2">
                 <Grid.Resources>
                     <Style TargetType="TextBlock"/>
                 </Grid.Resources>
-                
+
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -34,27 +44,26 @@
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
                 <Border Grid.Row="0" Grid.Column="0">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">管理番号</TextBlock>
                 </Border>
-                <TextBox Grid.Row="0" Grid.Column="1" Text="EC0010"/>
+                <TextBox Grid.Row="0" Grid.Column="1" Text="EC0010" IsReadOnly="True"/>
                 <Border Grid.Row="0" Grid.Column="2">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">設備名</TextBlock>
                 </Border>
-                <TextBox Grid.Row="0" Grid.Column="3" Text="噴出成形器 EC180SX"/>
+                <TextBox Grid.Row="0" Grid.Column="3" Text="噴出成形器 EC180SX" IsReadOnly="True"/>
 
                 <Border Grid.Row="1" Grid.Column="0">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業番号</TextBlock>
                 </Border>
-                <TextBox Grid.Row="1" Grid.Column="1" Text="103"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Text="103" IsReadOnly="True"/>
                 <Border Grid.Row="1" Grid.Column="2">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">分類</TextBlock>
                 </Border>
-                <TextBox Grid.Row="1" Grid.Column="3" Text="点検"/>
+                <TextBox Grid.Row="1" Grid.Column="3" Text="点検" IsReadOnly="True"/>
                 <Border Grid.Row="1" Grid.Column="4">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業名</TextBlock>
                 </Border>
@@ -63,22 +72,22 @@
                 <Border Grid.Row="2" Grid.Column="0">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業開始予定日時</TextBlock>
                 </Border>
-                <TextBox Grid.Row="2" Grid.Column="1" Text="YYYY/MM/DD HH:MM"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Text="YYYY/MM/DD HH:MM" IsReadOnly="True"/>
                 <Border Grid.Row="2" Grid.Column="2">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業完了予定日時</TextBlock>
                 </Border>
-                <TextBox Grid.Row="2" Grid.Column="3" Text="YYYY/MM/DD HH:MM"/>
-                
+                <TextBox Grid.Row="2" Grid.Column="3" Text="YYYY/MM/DD HH:MM" IsReadOnly="True"/>
+
                 <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="6" Style="{StaticResource jp_BorderLine}"/>
 
                 <Border Grid.Row="4">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業者</TextBlock>
                 </Border>
-                <TextBox Grid.Row="4" Grid.Column="1" Text="東芝 一郎"/>
+                <TextBox Grid.Row="4" Grid.Column="1" Text="東芝 一郎" IsReadOnly="True"/>
                 <Border Grid.Row="4" Grid.Column="2">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業状態</TextBlock>
                 </Border>
-                <TextBox Grid.Row="4" Grid.Column="3" Text="作業中"/>
+                <TextBox Grid.Row="4" Grid.Column="3" Text="作業中" IsReadOnly="True"/>
 
                 <ListView Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="6" Name="lstView" IsItemClickEnabled="True" 
                       ItemsSource="{Binding Cars}">
@@ -144,7 +153,7 @@
                         <DataTemplate>
                             <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
                                 Background="{Binding Converter={StaticResource ColorConvert}}">
-                                
+
                                 <Grid.Resources>
                                     <Style TargetType="Border">
                                         <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
@@ -181,7 +190,7 @@
                                     <ColumnDefinition Width="100"/>
                                     <ColumnDefinition Width="100"/>
                                 </Grid.ColumnDefinitions>
-                                
+
                                 <Border Grid.Column="0">
                                     <TextBlock Text="{Binding No}" TextAlignment="Right"/>
                                 </Border>
@@ -206,12 +215,12 @@
                 </ListView>
             </Grid>
 
-            <StackPanel Grid.Row="2" Orientation="Horizontal">
+            <StackPanel Grid.Row="3" Orientation="Horizontal">
                 <Button>正方形/長方形 15</Button>
                 <Button>正方形/長方形 30</Button>
                 <Button Grid.Column="2">正方形/長方形 32</Button>
             </StackPanel>
         </Grid>
     </ScrollViewer>
-    
+
 </Page>

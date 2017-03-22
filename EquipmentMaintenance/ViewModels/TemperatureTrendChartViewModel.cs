@@ -15,7 +15,7 @@ namespace EquipmentMaintenance.ViewModels
         public void ChartMapper()
         {
             var mapper = Mappers.Xy<MeasureModel>()
-                   .X(model => model.DateTime.Ticks)   //use DateTime.Ticks as X
+                   .X(model => model.DateTime.ToString())   //use DateTime.Ticks as X
                    .Y(model => model.Value);           //use the value property as Y
 
             //lets save the mapper globally.

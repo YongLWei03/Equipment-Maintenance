@@ -98,7 +98,6 @@
     </Compile>
     <Compile Include="Converters\AlternatingIndexConverter.cs" />
     <Compile Include="Helpers\RealChart.cs" />
-    <Compile Include="JsonDatas\ChartObject.cs" />
     <Compile Include="Helpers\JsonProvider.cs" />
     <Compile Include="Models\MeasureModel.cs" />
     <Compile Include="PageTokens.cs" />

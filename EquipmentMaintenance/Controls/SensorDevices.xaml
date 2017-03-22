@@ -4,6 +4,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:local="using:EquipmentMaintenance"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
@@ -18,14 +19,14 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" Height="Auto">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
@@ -37,60 +38,41 @@
                     <ColumnDefinition/>
                 </Grid.ColumnDefinitions>
 
-                <Border>
+                <Border Grid.Row="0" Grid.Column="0">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">管理番号</TextBlock>
                 </Border>
                 <TextBox Grid.Row="0" Grid.Column="1" Text="EC0010"/>
-
                 <Border Grid.Row="0" Grid.Column="2">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">設備名</TextBlock>
                 </Border>
                 <TextBox Grid.Row="0" Grid.Column="3" Text="噴出成形器 EC180SX"/>
 
-                <Border Grid.Row="1" >
+                <Border Grid.Row="1" Grid.Column="0">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業番号</TextBlock>
                 </Border>
                 <TextBox Grid.Row="1" Grid.Column="1" Text="103"/>
-
                 <Border Grid.Row="1" Grid.Column="2">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">分類</TextBlock>
                 </Border>
                 <TextBox Grid.Row="1" Grid.Column="3" Text="点検"/>
-
                 <Border Grid.Row="1" Grid.Column="4">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業名</TextBlock>
                 </Border>
                 <TextBox Grid.Row="1" Grid.Column="5" Text="簡易点検作業"/>
-            </Grid>
 
-            <Grid Grid.Row="1" Height="Auto">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <Border>
+                <Border Grid.Row="2" Grid.Column="0">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業開始予定日時</TextBlock>
                 </Border>
-                <TextBox Grid.Row="0" Grid.Column="1" Text="YYYY/MM/DD HH:MM"/>
-
-                <Border Grid.Row="0" Grid.Column="2">
+                <TextBox Grid.Row="2" Grid.Column="1" Text="YYYY/MM/DD HH:MM"/>
+                <Border Grid.Row="2" Grid.Column="2">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業完了予定日時</TextBlock>
                 </Border>
-                <TextBox Grid.Row="0" Grid.Column="3" Text="YYYY/MM/DD HH:MM"/>
+                <TextBox Grid.Row="2" Grid.Column="3" Text="YYYY/MM/DD HH:MM"/>
             </Grid>
+            
+            <Border Grid.Row="1" Style="{StaticResource jp_BorderLine}"/>
 
-            <Border Grid.Row="2" Style="{StaticResource jp_BorderLine}"/>
-
-            <Grid Grid.Row="3" Height="Auto">
+            <Grid Grid.Row="2" Height="Auto">
                 <Grid.RowDefinitions>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -115,7 +97,12 @@
                 <TextBox Grid.Row="0" Grid.Column="3" Text="作業中"/>
             </Grid>
 
-            <ListView Grid.Row="4" Name="lstView" IsItemClickEnabled="True" ItemsSource="{Binding Cars}">
+            <ListView Grid.Row="3" Name="lstView" IsItemClickEnabled="True" ItemsSource="{Binding Cars}">
+                <ListView.Resources>
+                    <local:AlternateConverter CurrentList="{Binding ElementName=lstView, Path=ItemsSource}" 
+                                      AlternateBrushes="{Binding Brushes}"
+                                      x:Key="AlternateConverter"/>
+                </ListView.Resources>
                 <ListView.ItemContainerStyle>
                     <Style TargetType="ListViewItem">
                         <Setter Property="HorizontalContentAlignment"  Value="Stretch"></Setter>
@@ -189,7 +176,7 @@
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Grid Grid.Row="5" Margin="0,20">
+            <Grid Grid.Row="4" Margin="0,20">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="Auto"/>
                     <ColumnDefinition Width="Auto"/>

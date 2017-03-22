@@ -97,17 +97,19 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Behaviors\ListViewBehavior.cs" />
-    <Compile Include="Controls\MeasureModel.cs" />
-    <Compile Include="Controls\SensorDetails.xaml.cs">
-      <DependentUpon>SensorDetails.xaml</DependentUpon>
+    <Compile Include="Models\MeasureModel.cs" />
+    <Compile Include="Views\EquipmentDetailView.xaml.cs">
+      <DependentUpon>EquipmentDetailView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Controls\SensorDevices.xaml.cs">
-      <DependentUpon>SensorDevices.xaml</DependentUpon>
+    <Compile Include="Views\EquipmentView.xaml.cs">
+      <DependentUpon>EquipmentView.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ViewModels\EquipmentDetailViewModel.cs" />
+    <Compile Include="ViewModels\EquipmentViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -129,11 +131,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Controls\SensorDetails.xaml">
+    <Page Include="Views\EquipmentDetailView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Controls\SensorDevices.xaml">
+    <Page Include="Views\EquipmentView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -176,6 +178,11 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <UserProperties chart_1json__JSONSchema="http://json.schemastore.org/nuget-project" />
+    </VisualStudio>
+  </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

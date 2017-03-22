@@ -13,9 +13,9 @@ namespace EquipmentMaintenance
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class SensorDevices : Page
+    public sealed partial class EquipmentView : Page
     {
-        public SensorDevices()
+        public EquipmentView()
         {
             this.InitializeComponent();
             this.DataContext = this;
@@ -60,7 +60,7 @@ namespace EquipmentMaintenance
             await newView.Dispatcher.RunAsync( CoreDispatcherPriority.Normal, () =>
                 {
                     var frame = new Frame();
-                    frame.Navigate(typeof(SensorDetails));
+                    frame.Navigate(typeof(EquipmentDetailView));
                     Window.Current.Content = frame;
 
                     viewId = ApplicationView.GetForCurrentView().Id;

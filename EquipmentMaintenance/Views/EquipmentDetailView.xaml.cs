@@ -15,11 +15,11 @@ namespace EquipmentMaintenance
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class SensorDetails : Page
+    public sealed partial class EquipmentDetailView : Page, INotifyPropertyChanged
     {
         private double _axisMax = 100;
         private double _axisMin = 60;
-        public SensorDetails()
+        public EquipmentDetailView()
         {
             this.InitializeComponent();
 
@@ -35,7 +35,7 @@ namespace EquipmentMaintenance
             ChartValues = new ChartValues<MeasureModel>();
 
             //lets set how to display the X Labels
-            DateTimeFormatter = value => new DateTime((long)(value)).ToString("MM/dd");
+            DateTimeFormatter = value => new DateTime((long)(value)).ToString("mm:ss");
 
             AxisStep = TimeSpan.FromSeconds(1).Ticks;
             SetAxisLimits(DateTime.Now);
@@ -43,18 +43,14 @@ namespace EquipmentMaintenance
             //The next code simulates data changes every 300 ms
             Timer = new DispatcherTimer
             {
-                Interval = TimeSpan.FromMilliseconds(5)
+                Interval = TimeSpan.FromMilliseconds(300)
             };
             Timer.Tick += TimerOnTick;
             IsDataInjectionRunning = false;
             R = new Random();
 
-            DataContext = this;
             this.DataContext = this;
         }
-
-
-
         public ChartValues<MeasureModel> ChartValues { get; set; }
         public Func<double, string> DateTimeFormatter { get; set; }
 
@@ -135,7 +131,7 @@ namespace EquipmentMaintenance
             await newView.Dispatcher.RunAsync( CoreDispatcherPriority.Normal, () =>
                 {
                     var frame = new Frame();
-                    frame.Navigate(typeof(SensorDevices));
+                    frame.Navigate(typeof(EquipmentView));
                     Window.Current.Content = frame;
 
                     viewId = ApplicationView.GetForCurrentView().Id;

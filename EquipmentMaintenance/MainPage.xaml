@@ -8,5 +8,5 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <local:SensorDevices/>
+    <local:EquipmentView/>
 </Page>

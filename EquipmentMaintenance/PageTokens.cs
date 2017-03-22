@@ -6,7 +6,9 @@ using System.Threading.Tasks;
 
 namespace EquipmentMaintenance
 {
-    class SensorDetailViewModel
+    public static class PageTokens
     {
+        public const string EquipmentPage = "Equipment";
+        public const string EquipmentDetailPage = "EquipmentDetail";
     }
 }

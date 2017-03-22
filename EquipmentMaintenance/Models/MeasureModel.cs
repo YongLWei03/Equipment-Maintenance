@@ -4,7 +4,7 @@ namespace EquipmentMaintenance
 {
     public class MeasureModel
     {
-        public DateTime DateTime { get; set; }
+        public DateTime DateTime { get; set; } 
         public int Value { get; set; }
     }
 }

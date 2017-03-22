@@ -13,5 +13,10 @@ namespace EquipmentMaintenance
         {
             this.InitializeComponent();
         }
+
+        public void SetContentFrame(Frame frame)
+        {
+            root.Content = frame;
+        }
     }
 }

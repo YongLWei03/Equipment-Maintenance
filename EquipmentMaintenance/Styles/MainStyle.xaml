@@ -39,6 +39,11 @@
         <Setter Property="FontSize" Value="24"/>
     </Style>
 
+    <Style TargetType="TextBlock" x:Key="jp_TextBlockHeader" BasedOn="{StaticResource jp_TextBlockInBorder}">
+        <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
+        <Setter Property="FontSize" Value="20"/>
+    </Style>
+
     <Style TargetType="TextBox">
         <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
         <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>

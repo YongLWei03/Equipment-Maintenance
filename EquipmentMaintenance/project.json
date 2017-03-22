@@ -1,7 +1,9 @@
 ﻿{
   "dependencies": {
     "LiveCharts.Uwp": "0.8.0",
-    "Microsoft.NETCore.UniversalWindowsPlatform": "5.1.0"
+    "Microsoft.NETCore.UniversalWindowsPlatform": "5.3.1",
+    "Newtonsoft.Json": "10.0.1",
+    "Prism.Unity": "6.3.0-pre2"
   },
   "frameworks": {
     "uap10.0": {}

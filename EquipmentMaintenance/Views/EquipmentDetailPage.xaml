@@ -1,10 +1,12 @@
-﻿<Page
-    x:Class="EquipmentMaintenance.EquipmentDetailView"
+﻿<prismMvvm:SessionStateAwarePage
+    x:Class="EquipmentMaintenance.Views.EquipmentDetailPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:lvc="using:LiveCharts.Uwp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:prismMvvm="using:Prism.Windows.Mvvm"
+    prismMvvm:ViewModelLocator.AutoWireViewModel="True"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
@@ -27,8 +29,8 @@
             </Border>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Click="BackToListCommand">正方形/長方形 34</Button>
-                <Button Margin="0,0,0,10" Click="CloseCommand">正方形/長方形 3</Button>
+                <Button Command="{Binding BackToListCommand}">正方形/長方形 34</Button>
+                <Button Margin="0,0,0,10" Command="{Binding CloseCommand}">正方形/長方形 3</Button>
             </StackPanel>
 
             <Grid Grid.Row="2">
@@ -82,12 +84,12 @@
                     </Grid.RowDefinitions>
 
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0">
-                        <Button Margin="0,0,5,0" Click="RunDataOnClick">Graph1</Button>
-                        <Button Margin="0,0,5,0">Graph2</Button>
-                        <Button Margin="0,0,15,0">Graph3</Button>
+                        <Button Margin="0,0,5,0" Command="{Binding Graph1Command}">Graph1</Button>
+                        <Button Margin="0,0,5,0" Command="{Binding Graph2Command}">Graph2</Button>
+                        <Button Margin="0,0,15,0" Command="{Binding Graph3Command}">Graph3</Button>
                     </StackPanel>
 
-                    <lvc:CartesianChart Grid.Row="1" BorderThickness="1" BorderBrush="{StaticResource jp_AltBorder}">
+                    <lvc:CartesianChart Grid.Row="1" BorderThickness="2" BorderBrush="{StaticResource jp_AltBorder}">
                         <lvc:CartesianChart.Series>
                             <lvc:LineSeries Values="{Binding ChartValues}" PointGeometrySize="18" StrokeThickness="4" />
                         </lvc:CartesianChart.Series>
@@ -109,8 +111,10 @@
                         <RowDefinition Height="Auto"/>
                         <RowDefinition/>
                     </Grid.RowDefinitions>
-                    
-                    <TextBlock Style="{StaticResource jp_TextBlockTitle}">センサー情報</TextBlock>
+
+                    <Border Style="{x:Null}" Height="40" VerticalAlignment="Stretch">
+                        <TextBlock Style="{StaticResource jp_TextBlockHeader}" VerticalAlignment="Stretch">センサー情報</TextBlock>
+                    </Border>
 
                     <ListView Grid.Row="1" Name="lstView" IsItemClickEnabled="True" ItemsSource="{Binding Cars}">
                         <ListView.ItemContainerStyle>
@@ -213,4 +217,4 @@
             </Grid>
         </Grid>
     </ScrollViewer>
-</Page>
+</prismMvvm:SessionStateAwarePage>

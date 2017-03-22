@@ -89,27 +89,33 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="chart.json" />
+    <None Include="JsonDatas\chart.json" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Behaviors\ListViewBehavior.cs" />
+    <Compile Include="Converters\AlternatingIndexConverter.cs" />
+    <Compile Include="Helpers\RealChart.cs" />
+    <Compile Include="JsonDatas\ChartObject.cs" />
+    <Compile Include="Helpers\JsonProvider.cs" />
     <Compile Include="Models\MeasureModel.cs" />
-    <Compile Include="Views\EquipmentDetailView.xaml.cs">
-      <DependentUpon>EquipmentDetailView.xaml</DependentUpon>
+    <Compile Include="PageTokens.cs" />
+    <Compile Include="ViewModels\TemperatureTrendChartViewModel.cs" />
+    <Compile Include="ViewModels\VibrationTrendChartViewModel.cs" />
+    <Compile Include="Views\EquipmentDetailPage.xaml.cs">
+      <DependentUpon>EquipmentDetailPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\EquipmentView.xaml.cs">
-      <DependentUpon>EquipmentView.xaml</DependentUpon>
+    <Compile Include="Views\EquipmentPage.xaml.cs">
+      <DependentUpon>EquipmentPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ViewModels\EquipmentDetailViewModel.cs" />
-    <Compile Include="ViewModels\EquipmentViewModel.cs" />
+    <Compile Include="ViewModels\EquipmentDetailPageViewModel.cs" />
+    <Compile Include="ViewModels\EquipmentPageViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -131,11 +137,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="Views\EquipmentDetailView.xaml">
+    <Page Include="Views\EquipmentDetailPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Views\EquipmentView.xaml">
+    <Page Include="Views\EquipmentPage.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -148,6 +154,7 @@
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
@@ -178,11 +185,7 @@
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
-  <ProjectExtensions>
-    <VisualStudio>
-      <UserProperties chart_1json__JSONSchema="http://json.schemastore.org/nuget-project" />
-    </VisualStudio>
-  </ProjectExtensions>
+  <ProjectExtensions />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

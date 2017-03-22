@@ -8,8 +8,8 @@ namespace EquipmentMaintenance
     public class AlternatingIndexConverter : IValueConverter
     {
         private static int _index;
-        public Color Even { get; set; } = new SolidColorBrush(Colors.White).Color;
-        public Color Odd { get; set; } = ColorContvertor.GetSolidColorBrush("#F9F9F9F9").Color;
+        public SolidColorBrush Even { get; set; } = new SolidColorBrush(Colors.White);
+        public SolidColorBrush Odd { get; set; } = ColorContvertor.GetSolidColorBrush("#F9F9F9F9");
 
         public object Convert(object value, Type targetType, object parameter, string language)
         {

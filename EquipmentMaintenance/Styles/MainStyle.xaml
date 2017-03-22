@@ -4,13 +4,15 @@
     xmlns:local="using:EquipmentMaintenance">
 
     <SolidColorBrush x:Key="jp_Backgroud" Color="#697D83"/>
-    <SolidColorBrush x:Key="jp_AltBackgroud" Color="#D2D2D2"/>
+    <SolidColorBrush x:Key="jp_AltBackgroud" Color="#F9F9F9"/>
     <SolidColorBrush x:Key="jp_AltBorder" Color="#DDD"/>
     <SolidColorBrush x:Key="jp_Border" Color="#697D83"/>
     <SolidColorBrush x:Key="jp_Foreground" Color="#333"/>
 
 
-    <SolidColorBrush x:Key="jp_ButtonHover" Color="#11A0CB"/>
+    <SolidColorBrush x:Key="jp_ButtonBackgroud" Color="#30b2d9"/>
+    <SolidColorBrush x:Key="jp_ButtonBorder" Color="#46b8da"/>
+    <SolidColorBrush x:Key="jp_ButtonHover" Color="#5bc0de"/>
     <SolidColorBrush x:Key="jp_ButtonClick" Color="#0F8DB3"/>
 
     <Style TargetType="Border">
@@ -19,9 +21,10 @@
     </Style>
     
     <Style TargetType="Border" x:Key="jp_BorderLine">
-        <Setter Property="BorderBrush" Value="{StaticResource jp_Backgroud}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
-        <Setter Property="Margin" Value="0,10"/>
+        <Setter Property="Height" Value="1"/>
+        <Setter Property="Margin" Value="0,0,0,10"/>
     </Style>
 
     <Style TargetType="TextBlock" x:Key="jp_TextBlockInBorder">
@@ -41,7 +44,7 @@
 
     <Style TargetType="TextBox">
         <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
-        <Setter Property="BorderBrush" Value="{StaticResource jp_Border}"/>
+        <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
         <Setter Property="BorderThickness" Value="0,0,0,0.5"/>
         <Setter Property="Padding" Value="6"/>
         <Setter Property="Margin" Value="0,0,25,10"/>
@@ -57,11 +60,9 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
                     <Border Name="rootButton" BorderThickness="{TemplateBinding BorderThickness}" 
+                            BorderBrush="{StaticResource jp_ButtonBorder}"
                             Padding="{TemplateBinding Padding}" CornerRadius="3">
-                        
-                        <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        
+
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 
@@ -73,20 +74,20 @@
                                 <VisualState x:Name="Normal" />
                                 <VisualState x:Name="MouseOver">
                                     <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="backgroudButton"  Storyboard.TargetProperty="Color" To="{Binding Source={StaticResource jp_ButtonHover}}" />
+                                        <ColorAnimation Storyboard.TargetName="backgroudButton"  Storyboard.TargetProperty="Color" To="#269abc" />
                                     </Storyboard>
                                 </VisualState>
                                 
                                 <VisualState x:Name="Pressed">
                                     <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="backgroudButton"  Storyboard.TargetProperty="Color" To="{Binding Source={StaticResource jp_ButtonClick}}" />
+                                        <ColorAnimation Storyboard.TargetName="backgroudButton"  Storyboard.TargetProperty="Color" To="#0F8DB3" />
                                     </Storyboard>
                                 </VisualState>
                             </VisualStateGroup>
                         </VisualStateManager.VisualStateGroups>
-                        
+
                         <Border.Background>
-                            <SolidColorBrush x:Name="backgroudButton" Color="#1dbcec"/>
+                            <SolidColorBrush x:Name="backgroudButton" Color="#31b0d5"/>
                         </Border.Background>
                     </Border>
                 </ControlTemplate>

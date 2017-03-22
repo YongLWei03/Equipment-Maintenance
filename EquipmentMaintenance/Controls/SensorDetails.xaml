@@ -18,11 +18,12 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
             <Grid Grid.Row="0" Height="Auto">
                 <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
@@ -39,7 +40,6 @@
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">管理番号</TextBlock>
                 </Border>
                 <TextBox Grid.Row="0" Grid.Column="1" Text="EC0010"/>
-
                 <Border Grid.Row="0" Grid.Column="2">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">設備名</TextBlock>
                 </Border>
@@ -49,57 +49,40 @@
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">設備状態</TextBlock>
                 </Border>
                 <TextBox Grid.Row="1"  Grid.Column="1" Text="異常なし"/>
-            </Grid>
 
-            <Border Grid.Row="1" Style="{StaticResource jp_BorderLine}"/>
+                <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" Style="{StaticResource jp_BorderLine}"/>
 
-            <Grid Grid.Row="2">
-                <Grid.RowDefinitions>
-                    <RowDefinition/>
-                    <RowDefinition/>
-                </Grid.RowDefinitions>
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition Width="Auto"/>
-                    <ColumnDefinition/>
-                </Grid.ColumnDefinitions>
-
-                <Border>
+                <Border Grid.Row="3">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業者</TextBlock>
                 </Border>
-                <TextBox Grid.Row="0" Grid.Column="1" Text="東芝 一郎"/>
-
-                <Border Grid.Row="0" Grid.Column="2">
+                <TextBox Grid.Row="3" Grid.Column="1" Text="東芝 一郎"/>
+                <Border Grid.Row="3" Grid.Column="2">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業状態</TextBlock>
                 </Border>
-                <TextBox Grid.Row="0" Grid.Column="3" Text="作業中"/>
+                <TextBox Grid.Row="3" Grid.Column="3" Text="作業中"/>
             </Grid>
 
-            <Grid Grid.Row="3">
+            <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="3*"/>
                     <ColumnDefinition Width="2*"/>
                 </Grid.ColumnDefinitions>
 
                 <Grid Grid.Column="0">
-                    <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Right" >
+                    <!--<lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Right" >
                         <lvc:CartesianChart.AxisY>
                             <lvc:Axis Title="グラフを" LabelFormatter="{Binding YFormatter}"></lvc:Axis>
                         </lvc:CartesianChart.AxisY>
                         <lvc:CartesianChart.AxisX>
                             <lvc:Axis Title="Month" Labels="{Binding Labels}"></lvc:Axis>
                         </lvc:CartesianChart.AxisX>
-                    </lvc:CartesianChart>
+                    </lvc:CartesianChart>-->
                 </Grid>
 
                 <StackPanel Grid.Column="1">
                     <TextBlock Margin="0" Style="{StaticResource jp_TextBlockTitle}" TextAlignment="Center">センサー情報</TextBlock>
 
-
-                    <ListView x:Name="lstView" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding CarDetails}">
+                    <ListView x:Name="lstView" ScrollViewer.VerticalScrollBarVisibility="Auto">
                         <ListView.Header>
                             <Grid HorizontalAlignment="Stretch" Background="{StaticResource jp_Backgroud}" Height="32">
                                 <Grid.Resources>

@@ -2,7 +2,6 @@
     x:Class="EquipmentMaintenance.SensorDetails"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:EquipmentMaintenance"
     xmlns:lvc="using:LiveCharts.Uwp"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
@@ -97,14 +96,12 @@
                 </Grid>
 
                 <StackPanel Grid.Column="1">
-                    <Border Margin="0" Background="#13B2E2" Height="32">
-                        <TextBlock Style="{StaticResource jp_TextBlockInBorder}" Margin="0" TextAlignment="Center">
-                        センサー情報</TextBlock>
-                    </Border>
+                    <TextBlock Margin="0" Style="{StaticResource jp_TextBlockTitle}" TextAlignment="Center">センサー情報</TextBlock>
+
 
                     <ListView x:Name="lstView" ScrollViewer.VerticalScrollBarVisibility="Auto" ItemsSource="{Binding CarDetails}">
                         <ListView.Header>
-                            <Grid HorizontalAlignment="Stretch" Background="#607278" Height="32">
+                            <Grid HorizontalAlignment="Stretch" Background="{StaticResource jp_Backgroud}" Height="32">
                                 <Grid.Resources>
                                     <Style TargetType="TextBlock">
                                         <Setter Property="Foreground" Value="White"/>
@@ -127,7 +124,7 @@
                                 <Grid HorizontalAlignment="Stretch">
                                     <Grid.Resources>
                                         <Style TargetType="TextBlock">
-                                            <Setter Property="Foreground" Value="#5F5F5F"/>
+                                            <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
                                             <Setter Property="VerticalAlignment" Value="Center"/>
                                             <Setter Property="HorizontalAlignment" Value="Center"/>
                                             <Setter Property="Margin" Value="20,0"/>

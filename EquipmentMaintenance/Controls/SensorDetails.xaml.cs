@@ -1,8 +1,6 @@
 ﻿using LiveCharts;
 using LiveCharts.Configurations;
-using LiveCharts.Uwp;
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
 using Windows.ApplicationModel.Core;
 using Windows.UI.Core;

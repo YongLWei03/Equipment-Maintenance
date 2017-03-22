@@ -17,9 +17,11 @@
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Style="{StaticResource jp_TextBlockTitle}" 
+            <Border Style="{x:Null}" Height="42">
+                <TextBlock Style="{StaticResource jp_TextBlockTitle}" 
                        HorizontalAlignment="Center">設備センサー情報</TextBlock>
-
+            </Border>
+            
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Click="GoToDetailCommand">正方形/長方形 34</Button>
                 <Button Margin="0,0,0,10" Click="CloseCommand">正方形/長方形 3</Button>
@@ -31,7 +33,6 @@
                 </Grid.Resources>
 
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition Height="Auto"/>
@@ -78,18 +79,16 @@
                 </Border>
                 <TextBox Grid.Row="2" Grid.Column="3" Text="YYYY/MM/DD HH:MM" IsReadOnly="True"/>
 
-                <Border Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="6" Style="{StaticResource jp_BorderLine}"/>
-
-                <Border Grid.Row="4">
+                <Border Grid.Row="3">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業者</TextBlock>
                 </Border>
-                <TextBox Grid.Row="4" Grid.Column="1" Text="東芝 一郎" IsReadOnly="True"/>
-                <Border Grid.Row="4" Grid.Column="2">
+                <TextBox Grid.Row="3" Grid.Column="1" Text="東芝 一郎" IsReadOnly="True"/>
+                <Border Grid.Row="3" Grid.Column="2">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業状態</TextBlock>
                 </Border>
-                <TextBox Grid.Row="4" Grid.Column="3" Text="作業中" IsReadOnly="True"/>
+                <TextBox Grid.Row="3" Grid.Column="3" Text="作業中" IsReadOnly="True"/>
 
-                <ListView Grid.Row="5" Grid.Column="0" Grid.ColumnSpan="6" Name="lstView" IsItemClickEnabled="True" 
+                <ListView Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="6" Name="lstView" IsItemClickEnabled="True" 
                       ItemsSource="{Binding Cars}">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">

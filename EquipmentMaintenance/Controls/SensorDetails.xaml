@@ -21,8 +21,10 @@
                 <RowDefinition/>
             </Grid.RowDefinitions>
 
-            <TextBlock Grid.Row="0" Style="{StaticResource jp_TextBlockTitle}" 
+            <Border Style="{x:Null}" Height="42">
+                <TextBlock Grid.Row="0" Style="{StaticResource jp_TextBlockTitle}" 
                        HorizontalAlignment="Center">設備検査・メンテナンス</TextBlock>
+            </Border>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
                 <Button Click="BackToListCommand">正方形/長方形 34</Button>
@@ -31,7 +33,6 @@
 
             <Grid Grid.Row="2">
                 <Grid.RowDefinitions>
-                    <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
@@ -58,16 +59,14 @@
                 </Border>
                 <TextBox Grid.Row="1"  Grid.Column="1" Text="異常なし" IsReadOnly="True"/>
 
-                <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="6" Style="{StaticResource jp_BorderLine}"/>
-
-                <Border Grid.Row="3">
+                <Border Grid.Row="2">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業者</TextBlock>
                 </Border>
-                <TextBox Grid.Row="3" Grid.Column="1" Text="東芝 一郎" IsReadOnly="True"/>
-                <Border Grid.Row="3" Grid.Column="2">
+                <TextBox Grid.Row="2" Grid.Column="1" Text="東芝 一郎" IsReadOnly="True"/>
+                <Border Grid.Row="2" Grid.Column="2">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業状態</TextBlock>
                 </Border>
-                <TextBox Grid.Row="3" Grid.Column="3" Text="作業中" IsReadOnly="True"/>
+                <TextBox Grid.Row="2" Grid.Column="3" Text="作業中" IsReadOnly="True"/>
             </Grid>
 
             <Grid Grid.Row="3">
@@ -85,8 +84,9 @@
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0">
                         <Button Margin="0,0,5,0">Graph1</Button>
                         <Button Margin="0,0,5,0">Graph2</Button>
-                        <Button Margin="0,0,5,0">Graph3</Button>
+                        <Button Margin="0,0,15,0">Graph3</Button>
                     </StackPanel>
+                    
                     <lvc:CartesianChart Grid.Row="1">
                         <lvc:CartesianChart.Series>
                             <lvc:LineSeries Values="{Binding ChartValues}" PointGeometrySize="18" StrokeThickness="4" />
@@ -105,7 +105,7 @@
                 </Grid>
 
                 <StackPanel Grid.Row="1" Grid.Column="1">
-                    <TextBlock Style="{StaticResource jp_TextBlockTitle}" >センサー情報</TextBlock>
+                    <TextBlock Style="{StaticResource jp_TextBlockTitle}">センサー情報</TextBlock>
 
                     <ListView Name="lstView" IsItemClickEnabled="True" ItemsSource="{Binding Cars}">
                         <ListView.ItemContainerStyle>
@@ -159,7 +159,7 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-                                Background="{Binding Converter={StaticResource ColorConvert}}">
+                                        Background="{Binding Converter={StaticResource ColorConvert}}">
 
                                     <Grid.Resources>
                                         <Style TargetType="Border">

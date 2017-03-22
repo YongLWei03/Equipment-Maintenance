@@ -80,34 +80,37 @@
                 </Grid>
 
                 <StackPanel Grid.Column="1">
-                    <TextBlock Margin="0" Style="{StaticResource jp_TextBlockTitle}" TextAlignment="Center">センサー情報</TextBlock>
+                    <TextBlock Style="{StaticResource jp_TextBlockTitle}" >センサー情報</TextBlock>
 
-                    <ListView x:Name="lstView" ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListView Name="lstView" IsItemClickEnabled="True" ItemsSource="{Binding Cars}">
+                        <ListView.ItemContainerStyle>
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment"  Value="Stretch"/>
+                                <Setter Property="VerticalContentAlignment"  Value="Stretch"/>
+                                <Setter Property="Margin"  Value="0"/>
+                                <Setter Property="Padding"  Value="0"/>
+                                <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
+                                <Setter Property="BorderThickness" Value="1,0,1,1"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
                         <ListView.Header>
-                            <Grid HorizontalAlignment="Stretch" Background="{StaticResource jp_Backgroud}" Height="32">
-                                <Grid.Resources>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="Foreground" Value="White"/>
-                                        <Setter Property="VerticalAlignment" Value="Center"/>
-                                        <Setter Property="HorizontalAlignment" Value="Center"/>
-                                        <Setter Property="Margin" Value="20,0"/>
-                                    </Style>
-                                </Grid.Resources>
-
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto"/>
-                                    <ColumnDefinition/>
-                                </Grid.ColumnDefinitions>
-                                <TextBlock Text="検出日時" />
-                                <TextBlock Grid.Column="1" Text="アラーム名" />
-                            </Grid>
+                            <Style TargetType="ListViewHeaderItem">
+                                <Setter Property="HorizontalContentAlignment"  Value="Center"/>
+                                <Setter Property="VerticalContentAlignment"  Value="Stretch"/>
+                                <Setter Property="Margin"  Value="0"/>
+                                <Setter Property="Padding"  Value="0"/>
+                            </Style>
                         </ListView.Header>
-                        <ListView.ItemTemplate>
+                        <ListView.HeaderTemplate>
                             <DataTemplate>
-                                <Grid HorizontalAlignment="Stretch">
+                                <Grid Background="{StaticResource jp_Backgroud}" Height="32">
                                     <Grid.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
+                                            <Setter Property="BorderThickness" Value="0,0,1,0"/>
+                                        </Style>
                                         <Style TargetType="TextBlock">
-                                            <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
+                                            <Setter Property="Foreground" Value="White"/>
                                             <Setter Property="VerticalAlignment" Value="Center"/>
                                             <Setter Property="HorizontalAlignment" Value="Center"/>
                                             <Setter Property="Margin" Value="20,0"/>
@@ -115,11 +118,63 @@
                                     </Grid.Resources>
 
                                     <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto"/>
-                                        <ColumnDefinition/>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
                                     </Grid.ColumnDefinitions>
-                                    <TextBlock Grid.Column="0" Text="{Binding Pro1Text}" TextAlignment="Right"/>
-                                    <TextBlock Grid.Column="1" Text="{Binding Pro2}" />
+
+                                    <Border Grid.Row="0">
+                                        <TextBlock Text="No."/>
+                                    </Border>
+                                    <Border Grid.Row="0" Grid.Column="1">
+                                        <TextBlock Text="点検項目" />
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </ListView.HeaderTemplate>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
+                                Background="{Binding Converter={StaticResource ColorConvert}}">
+
+                                    <Grid.Resources>
+                                        <Style TargetType="Border">
+                                            <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
+                                            <Setter Property="BorderThickness" Value="0,0,1,0"/>
+                                        </Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
+                                            <Setter Property="Margin" Value="15,0"/>
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                            <Setter Property="TextWrapping" Value="Wrap"/>
+                                        </Style>
+                                        <Style TargetType="TextBox">
+                                            <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
+                                            <Setter Property="BorderBrush" Value="Transparent"/>
+                                            <Setter Property="Margin" Value="15,0"/>
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                            <Setter Property="VerticalContentAlignment" Value="Bottom"/>
+                                            <Setter Property="BorderThickness" Value="1"/>
+                                            <Setter Property="TextWrapping" Value="Wrap"/>
+                                        </Style>
+                                        <Style TargetType="CheckBox">
+                                            <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
+                                            <Setter Property="Margin" Value="15,0"/>
+                                            <Setter Property="VerticalAlignment" Value="Center"/>
+                                            <Setter Property="MinWidth" Value="30"/>
+                                        </Style>
+                                    </Grid.Resources>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Border Grid.Column="0">
+                                        <TextBlock Text="{Binding No}" TextAlignment="Right"/>
+                                    </Border>
+                                    <Border Grid.Row="0" Grid.Column="1">
+                                        <TextBlock Grid.Column="1" Text="{Binding Pro1}"/>
+                                    </Border>
                                 </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>

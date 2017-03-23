@@ -35,6 +35,10 @@ namespace EquipmentMaintenance.ViewModels
 
         public double AxisYStep = 5000;
 
+        public double MaxY = 30000;
+
+        public double MinY = 12500;
+
         //the values property will store our values array
         private SeriesCollection _series;
         public SeriesCollection Series

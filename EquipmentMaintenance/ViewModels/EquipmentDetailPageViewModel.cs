@@ -28,8 +28,6 @@ namespace EquipmentMaintenance.ViewModels
             BuildVibrationChart();
         }
 
-        public ChartValues<double> Values1 = new ChartValues<double> { 3, 4, 6, 3, 2, 6 };
-
         private  Func<double, string> _yFormatter;
         public  Func<double, string> YFormatter
         {
@@ -86,6 +84,8 @@ namespace EquipmentMaintenance.ViewModels
                     _graph2Command = new DelegateCommand(() => {
                         this.AxisXStep = TemperatureChart.AxisXStep;
                         this.AxisYStep = TemperatureChart.AxisYStep;
+                        this.MaxY = TemperatureChart.MaxY;
+                        this.MinY = TemperatureChart.MinY;
                         this.Series = TemperatureChart.Series;
                         this.XFormatter = TemperatureChart.DateTimeFormatter;
                         this.YFormatter = TemperatureChart.TempurFormatter;
@@ -105,6 +105,8 @@ namespace EquipmentMaintenance.ViewModels
                     _graph3Command = new DelegateCommand(() => {
                         this.AxisXStep = VibrationChart.AxisXStep;
                         this.AxisYStep = VibrationChart.AxisYStep;
+                        this.MaxY = VibrationChart.MaxY;
+                        this.MinY = VibrationChart.MinY;
                         this.Series = VibrationChart.Series;
                         this.YFormatter = VibrationChart.NumberFormatter;
                         this.XFormatter = VibrationChart.DateTimeFormatter;
@@ -172,6 +174,20 @@ namespace EquipmentMaintenance.ViewModels
         {
             get { return _axisYStep; }
             set { SetProperty(ref _axisYStep, value); }
+        }
+
+        private double _maxY;
+        public double MaxY
+        {
+            get { return _maxY; }
+            set { SetProperty(ref _maxY, value); }
+        }
+
+        private double _minY;
+        public double MinY
+        {
+            get { return _minY; }
+            set { SetProperty(ref _minY, value); }
         }
 
         private double _axisXStep;

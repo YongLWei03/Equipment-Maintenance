@@ -208,7 +208,7 @@
                                     <CheckBox IsChecked="{Binding Pro4}" Content="NG" />
                                 </Border>
                                 <Border Grid.Row="0" Grid.Column="5">
-                                    <TextBox />
+                                    <TextBox Margin="0" Padding="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
                                 </Border>
                             </Grid>
                         </DataTemplate>

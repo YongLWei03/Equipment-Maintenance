@@ -10,8 +10,8 @@
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}"
     mc:Ignorable="d">
 
-    <ScrollViewer ScrollViewer.HorizontalScrollBarVisibility="Auto">
-        <Grid>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+        <Grid Margin="5,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>

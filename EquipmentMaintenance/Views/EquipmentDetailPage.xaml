@@ -25,12 +25,12 @@
 
             <Border Style="{x:Null}" Height="42">
                 <TextBlock Grid.Row="0" Style="{StaticResource jp_TextBlockTitle}" 
-                       HorizontalAlignment="Center">設備検査・メンテナンス</TextBlock>
+                       HorizontalAlignment="Center">設備センサー情報</TextBlock>
             </Border>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Command="{Binding BackToListCommand}">正方形/長方形 34</Button>
-                <Button Margin="0,0,0,10" Command="{Binding CloseCommand}">正方形/長方形 3</Button>
+                <Button Command="{Binding BackToListCommand}">作業手順</Button>
+                <Button Margin="0,0,0,10" Command="{Binding CloseCommand}">閉じる</Button>
             </StackPanel>
 
             <Grid Grid.Row="2">

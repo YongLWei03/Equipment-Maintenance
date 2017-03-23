@@ -25,8 +25,10 @@ namespace EquipmentMaintenance.ViewModels
             TemperatureChart = temperatureChart;
             VibrationChart = vibrationChart;
 
-            ChangeChartType();
+            BuildVibrationChart();
         }
+
+        public ChartValues<double> Values1 = new ChartValues<double> { 3, 4, 6, 3, 2, 6 };
 
         private  Func<double, string> _yFormatter;
         public  Func<double, string> YFormatter
@@ -58,11 +60,20 @@ namespace EquipmentMaintenance.ViewModels
                 {
                     _graph1Command = new DelegateCommand(() =>
                     {
-                        ChangeChartType();
+                        BuildVibrationChart();
                     });
                 }
                 return _graph1Command;
             }
+        }
+
+        private void BuildVibrationChart()
+        {
+            this.AxisXStep = VibrationChart.AxisXStep;
+            this.AxisYStep = VibrationChart.AxisYStep;
+            this.Series = VibrationChart.Series;
+            this.YFormatter = VibrationChart.NumberFormatter;
+            this.XFormatter = VibrationChart.DateTimeFormatter;
         }
 
         private ICommand _graph2Command;
@@ -73,7 +84,11 @@ namespace EquipmentMaintenance.ViewModels
                 if (_graph2Command == null)
                 {
                     _graph2Command = new DelegateCommand(() => {
-                        ChangeChartType();
+                        this.AxisXStep = TemperatureChart.AxisXStep;
+                        this.AxisYStep = TemperatureChart.AxisYStep;
+                        this.Series = TemperatureChart.Series;
+                        this.XFormatter = TemperatureChart.DateTimeFormatter;
+                        this.YFormatter = TemperatureChart.TempurFormatter;
                     });
                 }
                 return _graph2Command;
@@ -88,32 +103,15 @@ namespace EquipmentMaintenance.ViewModels
                 if (_graph3Command == null)
                 {
                     _graph3Command = new DelegateCommand(() => {
-                        ChangeChartType();
+                        this.AxisXStep = VibrationChart.AxisXStep;
+                        this.AxisYStep = VibrationChart.AxisYStep;
+                        this.Series = VibrationChart.Series;
+                        this.YFormatter = VibrationChart.NumberFormatter;
+                        this.XFormatter = VibrationChart.DateTimeFormatter;
                     });
                 }
                 return _graph3Command;
             }
-        }
-
-        private void ChangeChartType()
-        {
-            if (!_isTemperChart)
-            {
-                this.AxisXStep = VibrationChart.AxisXStep;
-                this.AxisYStep = TemperatureChart.AxisYStep;
-                this.Series = TemperatureChart.Series;
-                this.XFormatter = TemperatureChart.DateTimeFormatter;
-                this.YFormatter = TemperatureChart.TempurFormatter;
-            }
-            else
-            {
-                this.AxisXStep = VibrationChart.AxisXStep;
-                this.AxisYStep = VibrationChart.AxisYStep;
-                this.Series = VibrationChart.Series;
-                this.YFormatter = VibrationChart.NumberFormatter;
-                this.XFormatter = TemperatureChart.DateTimeFormatter;
-            }
-            _isTemperChart = !_isTemperChart;
         }
 
         private ICommand _backToListCommand;

@@ -91,7 +91,7 @@ namespace EquipmentMaintenance.ViewModels
                                 new MeasureModel { Minutes = 170, Value = 20000 },
                                 new MeasureModel { Minutes = 180, Value = 20000 }
                             }, Fill = new SolidColorBrush(Colors.Transparent)
-                        },
+                        }
                     };
                 }
                 return _series;

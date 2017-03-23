@@ -61,7 +61,6 @@ namespace EquipmentMaintenance.ViewModels
             set { SetProperty(ref _series1, value); }
         }
 
-
         //the values property will store our values array
         private ChartValues<MeasureModel> _series2;
         public ChartValues<MeasureModel> Series2

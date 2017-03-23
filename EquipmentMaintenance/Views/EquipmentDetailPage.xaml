@@ -29,8 +29,8 @@
             </Border>
 
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Command="{Binding BackToListCommand}">作業手順</Button>
-                <Button Margin="0,0,0,10" Command="{Binding CloseCommand}">閉じる</Button>
+                <Button Command="{Binding BackToListCommand}" Width="100">作業手順</Button>
+                <Button Margin="0,0,0,10" Command="{Binding CloseCommand}" Width="100">閉じる</Button>
             </StackPanel>
 
             <Grid Grid.Row="2">

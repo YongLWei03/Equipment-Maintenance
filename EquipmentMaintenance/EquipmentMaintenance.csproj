@@ -89,7 +89,7 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
-    <None Include="JsonDatas\chart.json" />
+    <None Include="JsonsData\chart.json" />
     <None Include="project.json" />
   </ItemGroup>
   <ItemGroup>

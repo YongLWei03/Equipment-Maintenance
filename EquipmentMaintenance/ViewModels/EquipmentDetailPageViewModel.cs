@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using LiveCharts;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Windows.Navigation;
 using System;
@@ -25,6 +26,20 @@ namespace EquipmentMaintenance.ViewModels
             VibrationChart = vibrationChart;
         }
 
+        private  Func<double, string> _xFormatter;
+        public  Func<double, string> XFormatter
+        {
+            get { return _xFormatter; }
+            set { SetProperty(ref _xFormatter, value); }
+        }
+
+        private bool _isTemperChart;
+        public bool IsTemperChart
+        {
+            get { return _isTemperChart; }
+            set { SetProperty(ref _isTemperChart, value); }
+        }
+
         private ICommand _graph1Command;
         public ICommand Graph1Command
         {
@@ -32,8 +47,9 @@ namespace EquipmentMaintenance.ViewModels
             {
                 if (_graph1Command == null)
                 {
-                    _graph1Command = new DelegateCommand(() => {
-                        //_navigationService.GoBack();
+                    _graph1Command = new DelegateCommand(() =>
+                    {
+                        ChangeChartType();
                     });
                 }
                 return _graph1Command;
@@ -48,7 +64,7 @@ namespace EquipmentMaintenance.ViewModels
                 if (_graph2Command == null)
                 {
                     _graph2Command = new DelegateCommand(() => {
-                        //_navigationService.GoBack();
+                        ChangeChartType();
                     });
                 }
                 return _graph2Command;
@@ -63,11 +79,28 @@ namespace EquipmentMaintenance.ViewModels
                 if (_graph3Command == null)
                 {
                     _graph3Command = new DelegateCommand(() => {
-                        //_navigationService.GoBack();
+                        ChangeChartType();
                     });
                 }
                 return _graph3Command;
             }
+        }
+
+        private void ChangeChartType()
+        {
+            if (!_isTemperChart)
+            {
+                this.AxisYStep = TemperatureChart.AxisYStep;
+                this.Series = TemperatureChart.Series;
+                this.XFormatter = TemperatureChart.TempurFormatter;
+            }
+            else
+            {
+                this.AxisYStep = VibrationChart.AxisYStep;
+                this.Series = VibrationChart.Series;
+                this.XFormatter = VibrationChart.NumberFormatter;
+            }
+            _isTemperChart = !_isTemperChart;
         }
 
         private ICommand _backToListCommand;
@@ -121,5 +154,21 @@ namespace EquipmentMaintenance.ViewModels
             },
             new EquipmentNote { Pro2 = ":" }
         };
+
+
+        private double _axisYStep;
+        public double AxisYStep
+        {
+            get { return _axisYStep; }
+            set { SetProperty(ref _axisYStep, value); }
+        }
+
+        //the values property will store our values array
+        private SeriesCollection _series;
+        public SeriesCollection Series
+        {
+            get { return _series; }
+            set { SetProperty(ref _series, value); }
+        }
     }
 }

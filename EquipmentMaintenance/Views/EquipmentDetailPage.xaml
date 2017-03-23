@@ -90,39 +90,50 @@
                     </StackPanel>
 
                     <lvc:CartesianChart Background="#222E31" Grid.Row="1" 
-                            Margin="0,15,15,10" BorderThickness="1" BorderBrush="{StaticResource jp_AltBorder}">
-                        <lvc:CartesianChart.Series>
-                            <lvc:LineSeries Values="{Binding TemperatureChart.Series1}" 
-                                    Stroke="#6BBA45" Fill="Transparent">
-                            </lvc:LineSeries>
-                            <lvc:LineSeries Values="{Binding TemperatureChart.Series2}" 
-                                    Stroke="#1C8FC5" Fill="Transparent"/>
-                        </lvc:CartesianChart.Series>
-                        
+                            Margin="0,15,15,10" BorderThickness="1" 
+                            Series="{Binding Series}"
+                            LegendLocation="Right"
+                            BorderBrush="{StaticResource jp_AltBorder}">
+
                         <lvc:CartesianChart.AxisX>
-                            <lvc:Axis IsMerged="True" LabelFormatter="{Binding TemperatureChart.DateTimeFormatter}">
+                            <lvc:Axis IsMerged="False" LabelFormatter="{Binding VibrationChart.DateTimeFormatter}">
                                 <lvc:Axis.Separator>
-                                    <lvc:Separator>
-                                        <lvc:Separator.Stroke>
-                                            <SolidColorBrush Color="#404F56" />
-                                        </lvc:Separator.Stroke>
-                                    </lvc:Separator>
+                                    <lvc:Separator IsEnabled="True" Step="{Binding VibrationChart.AxisXStep}"/>
+                                </lvc:Axis.Separator>
+                            </lvc:Axis>
+                        </lvc:CartesianChart.AxisX>
+                        
+                        <lvc:CartesianChart.AxisY>
+                            <lvc:Axis IsMerged="False" LabelFormatter="{Binding TempurFormatter}">
+                                <lvc:Axis.Separator>
+                                    <lvc:Separator IsEnabled="True" Step="{Binding AxisYStep}"/>
+                                </lvc:Axis.Separator>
+                            </lvc:Axis>
+                        </lvc:CartesianChart.AxisY>
+                    </lvc:CartesianChart>
+
+                    <!--<lvc:CartesianChart Background="#222E31" Grid.Row="1" 
+                            Margin="0,15,15,10" BorderThickness="1" 
+                            Series="{Binding TemperatureChart.Series}"
+                            LegendLocation="Right" Visibility="{Binding IsTemperChart}"
+                            BorderBrush="{StaticResource jp_AltBorder}">
+
+                        <lvc:CartesianChart.AxisX>
+                            <lvc:Axis IsMerged="False" LabelFormatter="{Binding TemperatureChart.DateTimeFormatter}">
+                                <lvc:Axis.Separator>
+                                    <lvc:Separator IsEnabled="True" Step="{Binding TemperatureChart.AxisXStep}"/>
                                 </lvc:Axis.Separator>
                             </lvc:Axis>
                         </lvc:CartesianChart.AxisX>
 
                         <lvc:CartesianChart.AxisY>
-                            <lvc:Axis IsMerged="True">
+                            <lvc:Axis IsMerged="False">
                                 <lvc:Axis.Separator>
-                                    <lvc:Separator StrokeDashArray="5000">
-                                        <lvc:Separator.Stroke>
-                                            <SolidColorBrush Color="#404F56" />
-                                        </lvc:Separator.Stroke>
-                                    </lvc:Separator>
+                                    <lvc:Separator IsEnabled="True" Step="{Binding TemperatureChart.AxisYStep}"/>
                                 </lvc:Axis.Separator>
                             </lvc:Axis>
                         </lvc:CartesianChart.AxisY>
-                    </lvc:CartesianChart>
+                    </lvc:CartesianChart>-->
                 </Grid>
 
                 <Grid Grid.Row="1" Grid.Column="1">

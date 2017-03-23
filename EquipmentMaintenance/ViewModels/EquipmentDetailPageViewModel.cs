@@ -26,6 +26,13 @@ namespace EquipmentMaintenance.ViewModels
             VibrationChart = vibrationChart;
         }
 
+        private  Func<double, string> _yFormatter;
+        public  Func<double, string> YFormatter
+        {
+            get { return _yFormatter; }
+            set { SetProperty(ref _yFormatter, value); }
+        }
+
         private  Func<double, string> _xFormatter;
         public  Func<double, string> XFormatter
         {
@@ -90,15 +97,19 @@ namespace EquipmentMaintenance.ViewModels
         {
             if (!_isTemperChart)
             {
+                this.AxisXStep = VibrationChart.AxisXStep;
                 this.AxisYStep = TemperatureChart.AxisYStep;
                 this.Series = TemperatureChart.Series;
-                this.XFormatter = TemperatureChart.TempurFormatter;
+                this.XFormatter = TemperatureChart.DateTimeFormatter;
+                this.YFormatter = TemperatureChart.TempurFormatter;
             }
             else
             {
+                this.AxisXStep = VibrationChart.AxisXStep;
                 this.AxisYStep = VibrationChart.AxisYStep;
                 this.Series = VibrationChart.Series;
-                this.XFormatter = VibrationChart.NumberFormatter;
+                this.YFormatter = VibrationChart.NumberFormatter;
+                this.XFormatter = TemperatureChart.DateTimeFormatter;
             }
             _isTemperChart = !_isTemperChart;
         }
@@ -161,6 +172,13 @@ namespace EquipmentMaintenance.ViewModels
         {
             get { return _axisYStep; }
             set { SetProperty(ref _axisYStep, value); }
+        }
+
+        private double _axisXStep;
+        public double AxisXStep
+        {
+            get { return _axisXStep; }
+            set { SetProperty(ref _axisXStep, value); }
         }
 
         //the values property will store our values array

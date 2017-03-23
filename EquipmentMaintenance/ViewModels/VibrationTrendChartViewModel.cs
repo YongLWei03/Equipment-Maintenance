@@ -29,11 +29,11 @@ namespace EquipmentMaintenance.ViewModels
         public Func<double, string> DateTimeFormatter { get; set; }
             = value => new DateTime((long)value).ToString("HH:mm");
         public Func<double, string> NumberFormatter { get; set; }
-            = value => string.Format("{###.0}", value);
+            = value => value.ToString();
 
         public double AxisXStep = TimeSpan.FromSeconds(60 * 10).Ticks;
 
-        public double AxisYStep = 50000;
+        public double AxisYStep = 5000;
 
         //the values property will store our values array
         private SeriesCollection _series;

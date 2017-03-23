@@ -96,15 +96,15 @@
                             BorderBrush="{StaticResource jp_AltBorder}">
 
                         <lvc:CartesianChart.AxisX>
-                            <lvc:Axis IsMerged="False" LabelFormatter="{Binding VibrationChart.DateTimeFormatter}">
+                            <lvc:Axis IsMerged="False" LabelFormatter="{Binding XFormatter}">
                                 <lvc:Axis.Separator>
-                                    <lvc:Separator IsEnabled="True" Step="{Binding VibrationChart.AxisXStep}"/>
+                                    <lvc:Separator IsEnabled="True" Step="{Binding AxisXStep}"/>
                                 </lvc:Axis.Separator>
                             </lvc:Axis>
                         </lvc:CartesianChart.AxisX>
                         
                         <lvc:CartesianChart.AxisY>
-                            <lvc:Axis IsMerged="False" LabelFormatter="{Binding TempurFormatter}">
+                            <lvc:Axis IsMerged="False" LabelFormatter="{Binding YFormatter}">
                                 <lvc:Axis.Separator>
                                     <lvc:Separator IsEnabled="True" Step="{Binding AxisYStep}"/>
                                 </lvc:Axis.Separator>

@@ -24,6 +24,8 @@ namespace EquipmentMaintenance.ViewModels
 
             TemperatureChart = temperatureChart;
             VibrationChart = vibrationChart;
+
+            ChangeChartType();
         }
 
         private  Func<double, string> _yFormatter;

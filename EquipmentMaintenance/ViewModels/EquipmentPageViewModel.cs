@@ -47,38 +47,38 @@ namespace EquipmentMaintenance.ViewModels
             }
         }
 
-        public List<MaintenanceCheckList> CheckList { get { return _checkList; } }
+        public List<MaintenanceCheckItem> CheckList { get { return _checkList; } }
 
-        private List<MaintenanceCheckList> _checkList = new List<MaintenanceCheckList> {
-            new MaintenanceCheckList {
+        private List<MaintenanceCheckItem> _checkList = new List<MaintenanceCheckItem> {
+            new MaintenanceCheckItem {
                 No = 1,
                 Pro1 = "電源電圧",
                 Pro2 = "通電時の電圧を確認して下さい。",
                 Pro3 = true,
                 Pro4 = false,
             },
-            new MaintenanceCheckList {
+            new MaintenanceCheckItem {
                 No = 2,
                 Pro1 = "電源ランプ",
                 Pro2 = "通電による電源ランプの点灯切替を確認して下さい。",
                 Pro3 = true,
                 Pro4 = false
             },
-            new MaintenanceCheckList {
+            new MaintenanceCheckItem {
                 No = 3,
                 Pro1 = "扉センサ1",
                 Pro2 = "前面右扉の開放によるランプ点灯を確認して下さい。",
                 Pro3 = true,
                 Pro4 = false
             },
-            new MaintenanceCheckList {
+            new MaintenanceCheckItem {
                 No = 4,
                 Pro1 = "扉センサ2",
                 Pro2 = "前面左扉の開放によるランプ点灯を確認して下さい。",
                 Pro3 = false,
                 Pro4 = true
             },
-            new MaintenanceCheckList { No = 5, Pro1 = ":", Pro2 = ":", Pro3 = false, Pro4 = false }
+            new MaintenanceCheckItem { No = 5, Pro1 = ":", Pro2 = ":", Pro3 = false, Pro4 = false }
         };
     }
 }

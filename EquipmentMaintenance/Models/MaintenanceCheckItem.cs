@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace EquipmentMaintenance.Models
 {
-    public class MaintenanceCheckList
+    public class MaintenanceCheckItem
     {
         public int No { get; set; }
         public string Pro1 { get; set; }

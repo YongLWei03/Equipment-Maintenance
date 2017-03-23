@@ -1,6 +1,8 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Windows.Navigation;
+using System;
+using System.Collections.Generic;
 using System.Windows.Input;
 
 namespace EquipmentMaintenance.ViewModels
@@ -9,15 +11,11 @@ namespace EquipmentMaintenance.ViewModels
     {
         private readonly INavigationService _navigationService;
 
-        private TemperatureTrendChartViewModel _temperatureChart;
-        public TemperatureTrendChartViewModel TemperatureChart
-        {
-            get { return _temperatureChart; }
-            private set { SetProperty(ref _temperatureChart, value); }
-        }
+        public TemperatureTrendChartViewModel TemperatureChart { get; private set; }
         public VibrationTrendChartViewModel VibrationChart { get; private set; }
 
-        public EquipmentDetailPageViewModel(INavigationService navigationService,
+        public EquipmentDetailPageViewModel(
+            INavigationService navigationService,
             TemperatureTrendChartViewModel temperatureChart,
             VibrationTrendChartViewModel vibrationChart)
         {
@@ -101,5 +99,27 @@ namespace EquipmentMaintenance.ViewModels
                 return _closeCommand;
             }
         }
+
+        public List<EquipmentNote> Notes { get { return _notes; } }
+
+        private List<EquipmentNote> _notes = new List<EquipmentNote> {
+            new EquipmentNote {
+                Pro1 = DateTime.Now,
+                Pro2 = "通電時の電圧を確認して下さい。"
+            },
+            new EquipmentNote {
+                Pro1 = DateTime.Now,
+                Pro2 = "通電による電源ランプの点灯切替を確認して下さい。"
+            },
+            new EquipmentNote {
+                Pro1 = DateTime.Now,
+                Pro2 = "前面右扉の開放によるランプ点灯を確認して下さい。"
+            },
+            new EquipmentNote {
+                Pro1 = DateTime.Now,
+                Pro2 = "前面左扉の開放によるランプ点灯を確認して下さい。"
+            },
+            new EquipmentNote { Pro2 = ":" }
+        };
     }
 }

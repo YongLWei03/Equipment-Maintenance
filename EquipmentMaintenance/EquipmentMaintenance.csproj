@@ -101,6 +101,7 @@
     <Compile Include="Helpers\JsonProvider.cs" />
     <Compile Include="Models\MeasureModel.cs" />
     <Compile Include="PageTokens.cs" />
+    <Compile Include="Models\EquipmentNote.cs" />
     <Compile Include="ViewModels\TemperatureTrendChartViewModel.cs" />
     <Compile Include="ViewModels\VibrationTrendChartViewModel.cs" />
     <Compile Include="Views\EquipmentDetailPage.xaml.cs">

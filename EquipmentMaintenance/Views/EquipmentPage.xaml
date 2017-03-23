@@ -25,8 +25,8 @@
             </Border>
             
             <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button Command="{Binding GoToDetailCommand}">センサ情報</Button>
-                <Button Margin="0,0,0,10" Command="{Binding CloseCommand}">閉じる</Button>
+                <Button Command="{Binding GoToDetailCommand}" Width="100">センサ情報</Button>
+                <Button Margin="0,0,0,10" Command="{Binding CloseCommand}" Width="100">閉じる</Button>
             </StackPanel>
 
             <Grid Grid.Row="2">
@@ -90,8 +90,8 @@
                 </Border>
                 <TextBox Grid.Row="3" Grid.Column="3" Text="作業中" IsReadOnly="True"/>
 
-                <ListView Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="6" Name="lstView" IsItemClickEnabled="True" 
-                      ItemsSource="{Binding Cars}">
+                <ListView Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="6" 
+                          IsItemClickEnabled="True" ItemsSource="{Binding CheckList}">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment"  Value="Stretch"/>
@@ -217,9 +217,9 @@
             </Grid>
 
             <StackPanel Grid.Row="3" Orientation="Horizontal">
-                <Button>報告事項入力</Button>
-                <Button>交換部品入力</Button>
-                <Button Grid.Column="2">添付</Button>
+                <Button Width="130">報告事項入力</Button>
+                <Button Width="130">交換部品入力</Button>
+                <Button Grid.Column="2" Width="130">添付</Button>
             </StackPanel>
         </Grid>
     </ScrollViewer>

@@ -55,7 +55,7 @@
 
     <Style TargetType="Button">
         <Setter Property="Foreground" Value="White"/>
-        <Setter Property="Margin" Value="0,0,25,10"/>
+        <Setter Property="Margin" Value="0,0,20,10"/>
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="Height" Value="32"/>
         <Setter Property="BorderThickness" Value="0.2"/>

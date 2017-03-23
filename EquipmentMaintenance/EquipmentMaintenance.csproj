@@ -99,6 +99,7 @@
     <Compile Include="Converters\AlternatingIndexConverter.cs" />
     <Compile Include="Helpers\RealChart.cs" />
     <Compile Include="Helpers\JsonProvider.cs" />
+    <Compile Include="Models\MaintenanceCheckList.cs" />
     <Compile Include="Models\MeasureModel.cs" />
     <Compile Include="PageTokens.cs" />
     <Compile Include="Models\EquipmentNote.cs" />

@@ -1,4 +1,5 @@
-﻿using Prism.Commands;
+﻿using EquipmentMaintenance.Models;
+using Prism.Commands;
 using Prism.Mvvm;
 using Prism.Windows.Navigation;
 using System.Collections.Generic;
@@ -46,40 +47,38 @@ namespace EquipmentMaintenance.ViewModels
             }
         }
 
-        public List<Car> Cars { get { return _cars; } }
+        public List<MaintenanceCheckList> CheckList { get { return _checkList; } }
 
-        private List<Car> _cars = new List<Car> {
-            new Car { No = 1, Pro1 = "電源電圧",
+        private List<MaintenanceCheckList> _checkList = new List<MaintenanceCheckList> {
+            new MaintenanceCheckList {
+                No = 1,
+                Pro1 = "電源電圧",
                 Pro2 = "通電時の電圧を確認して下さい。",
                 Pro3 = true,
                 Pro4 = false,
             },
-            new Car { No = 2, Pro1 = "電源ランプ",
+            new MaintenanceCheckList {
+                No = 2,
+                Pro1 = "電源ランプ",
                 Pro2 = "通電による電源ランプの点灯切替を確認して下さい。",
                 Pro3 = true,
                 Pro4 = false
             },
-            new Car { No = 3, Pro1 = "扉センサ1",
+            new MaintenanceCheckList {
+                No = 3,
+                Pro1 = "扉センサ1",
                 Pro2 = "前面右扉の開放によるランプ点灯を確認して下さい。",
                 Pro3 = true,
                 Pro4 = false
             },
-            new Car { No = 4, Pro1 = "扉センサ2",
+            new MaintenanceCheckList {
+                No = 4,
+                Pro1 = "扉センサ2",
                 Pro2 = "前面左扉の開放によるランプ点灯を確認して下さい。",
                 Pro3 = false,
                 Pro4 = true
             },
-            new Car { No = 5, Pro1 = ":", Pro2 = ":", Pro3 = false, Pro4 = false }
+            new MaintenanceCheckList { No = 5, Pro1 = ":", Pro2 = ":", Pro3 = false, Pro4 = false }
         };
-    }
-
-
-    public class Car
-    {
-        public int No { get; set; }
-        public string Pro1 { get; set; }
-        public string Pro2 { get; set; }
-        public bool Pro3 { get; set; }
-        public bool Pro4 { get; set; }
     }
 }

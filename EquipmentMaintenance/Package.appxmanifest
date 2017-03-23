@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="6685765c-6cd0-4dec-9df3-9f0e3de56f31" Publisher="CN=iot.localhost@gmail.com" Version="1.0.7.0" />
+  <Identity Name="6685765c-6cd0-4dec-9df3-9f0e3de56f31" Publisher="CN=iot.localhost@gmail.com" Version="1.0.8.0" />
   <mp:PhoneIdentity PhoneProductId="6685765c-6cd0-4dec-9df3-9f0e3de56f31" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>設備保全管理システム</DisplayName>

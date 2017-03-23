@@ -89,20 +89,38 @@
                         <Button Margin="0,0,15,0" Command="{Binding Graph3Command}">Graph3</Button>
                     </StackPanel>
 
-                    <lvc:CartesianChart Grid.Row="1" BorderThickness="2" BorderBrush="{StaticResource jp_AltBorder}">
+                    <lvc:CartesianChart Background="#222E31" Grid.Row="1" 
+                            Margin="15" BorderThickness="1" BorderBrush="{StaticResource jp_AltBorder}">
                         <lvc:CartesianChart.Series>
-                            <lvc:LineSeries Values="{Binding ChartValues}" PointGeometrySize="18" StrokeThickness="4" />
+                            <lvc:LineSeries Values="{Binding TemperatureChart.Series1}" 
+                                    Stroke="#6BBA45" Fill="Transparent" 
+                                            LineSmoothness="10"/>
+                            <lvc:LineSeries Values="{Binding TemperatureChart.Series2}" 
+                                    Stroke="#1C8FC5" Fill="Transparent" 
+                                            LineSmoothness="10"/>
                         </lvc:CartesianChart.Series>
                         <lvc:CartesianChart.AxisX>
-                            <lvc:Axis LabelFormatter="{Binding DateTimeFormatter}" 
-                                  MaxValue="{Binding AxisMax}" 
-                                  MinValue="{Binding AxisMin}"
-                                  DisableAnimations="True">
+                            <lvc:Axis IsMerged="True">
                                 <lvc:Axis.Separator>
-                                    <lvc:Separator Step="{Binding AxisStep}"></lvc:Separator>
+                                    <lvc:Separator>
+                                        <lvc:Separator.Stroke>
+                                            <SolidColorBrush Color="#404F56" />
+                                        </lvc:Separator.Stroke>
+                                    </lvc:Separator>
                                 </lvc:Axis.Separator>
                             </lvc:Axis>
                         </lvc:CartesianChart.AxisX>
+                        <lvc:CartesianChart.AxisY>
+                            <lvc:Axis IsMerged="True">
+                                <lvc:Axis.Separator>
+                                    <lvc:Separator StrokeThickness="1.5" >
+                                        <lvc:Separator.Stroke>
+                                            <SolidColorBrush Color="#404F56" />
+                                        </lvc:Separator.Stroke>
+                                    </lvc:Separator>
+                                </lvc:Axis.Separator>
+                            </lvc:Axis>
+                        </lvc:CartesianChart.AxisY>
                     </lvc:CartesianChart>
                 </Grid>
 

@@ -8,7 +8,13 @@ namespace EquipmentMaintenance.ViewModels
     public class EquipmentDetailPageViewModel : BindableBase
     {
         private readonly INavigationService _navigationService;
-        public TemperatureTrendChartViewModel TemperatureChart { get; private set; }
+
+        private TemperatureTrendChartViewModel _temperatureChart;
+        public TemperatureTrendChartViewModel TemperatureChart
+        {
+            get { return _temperatureChart; }
+            private set { SetProperty(ref _temperatureChart, value); }
+        }
         public VibrationTrendChartViewModel VibrationChart { get; private set; }
 
         public EquipmentDetailPageViewModel(INavigationService navigationService,

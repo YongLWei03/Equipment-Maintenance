@@ -59,7 +59,7 @@
                 <Border Grid.Row="1">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">設備状態</TextBlock>
                 </Border>
-                <TextBox Grid.Row="1"  Grid.Column="1" Text="異常なし" IsReadOnly="True"/>
+                <TextBox Grid.Row="1"  Grid.Column="1" Text="異常なし" IsReadOnly="True" Background="Lime"/>
 
                 <Border Grid.Row="2">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業者</TextBlock>

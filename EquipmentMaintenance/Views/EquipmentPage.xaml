@@ -70,16 +70,16 @@
                 <Border Grid.Row="1" Grid.Column="4">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業名</TextBlock>
                 </Border>
-                <TextBox Grid.Row="1" Grid.Column="5" Text="簡易点検作業"/>
+                <TextBox Grid.Row="1" Grid.Column="5" Text="簡易点検作業" IsReadOnly="True"/>
 
                 <Border Grid.Row="2" Grid.Column="0">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業開始予定日時</TextBlock>
                 </Border>
-                <TextBox Grid.Row="2" Grid.Column="1" Text="YYYY/MM/DD HH:MM" IsReadOnly="True"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Text="2017/03/23 17:50" IsReadOnly="True"/>
                 <Border Grid.Row="2" Grid.Column="2">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業完了予定日時</TextBlock>
                 </Border>
-                <TextBox Grid.Row="2" Grid.Column="3" Text="YYYY/MM/DD HH:MM" IsReadOnly="True"/>
+                <TextBox Grid.Row="2" Grid.Column="3" Text="2017/03/24 18:00" IsReadOnly="True"/>
 
                 <Border Grid.Row="3">
                     <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業者</TextBlock>

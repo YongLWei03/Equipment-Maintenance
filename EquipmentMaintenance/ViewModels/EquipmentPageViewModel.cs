@@ -78,7 +78,7 @@ namespace EquipmentMaintenance.ViewModels
                 Pro3 = false,
                 Pro4 = true
             },
-            new MaintenanceCheckItem { No = 5, Pro1 = ":", Pro2 = ":", Pro3 = false, Pro4 = false }
+            //new MaintenanceCheckItem { No = 5, Pro1 = ":", Pro2 = ":", Pro3 = false, Pro4 = false }
         };
     }
 }

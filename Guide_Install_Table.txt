@@ -1,0 +1,30 @@
+1. Install certificate for local computer account
+	1.1 Right Click and choose "install Certificate" file "EquipmentMaintenance_1.0.5.0_x86_x64_arm.cer"
+	1.2 Choose Next
+	1.3 Choose "Place all certificates in the following store" -> Brower... -> "Trusted Root Certification Authorities" -> Choose OK
+	1.4 Choose Next
+	1.5 Choose Finish
+
+2. Install certificate on mmc.exe
+	2.1 Open mmc.exe from Run
+	2.2 Choose "File" -> "Add or Remove Snap-ins..."
+	2.3 Choose "Certificates" -> Choose "Add >"
+	2.4 Choose "Computer account" -> Choose Next
+	2.5 Choose "Local computer.(the computer this console is running on)"
+	2.6 Choose Finish
+
+3. Add path file certificate
+	3.1 Choose "Console Root" -> "Certificates(Local Computer)"
+	3.2 Right click "Trusted Root Certification Authorities" -> "All-Tasks" -> "Import"
+	3.3 Choose Next
+	3.4 Choose Brower -> select file "EquipmentMaintenance_1.0.5.0_x86_x64_arm.cer" -> Choose Next
+	3.5 Choose "Place all certificates in the following store" -> Choose Next
+	3.6 Choose Finish
+
+4. Enable Sideloading
+	4.1 Run setting computer
+	4.2 Choose Update & security
+	4.3 Choose For developers
+	4.4 Check Sideload apps
+	
+5. Run  file "EquipmentMaintenance_1.0.5.0_x86_x64_arm.appxbundle" -> install -> start

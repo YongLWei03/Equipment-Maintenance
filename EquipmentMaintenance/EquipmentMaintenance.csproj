@@ -20,7 +20,7 @@
     <AppxAutoIncrementPackageRevision>True</AppxAutoIncrementPackageRevision>
     <AppxBundle>Always</AppxBundle>
     <AppxBundlePlatforms>x86|x64|arm</AppxBundlePlatforms>
-    <PackageCertificateThumbprint>927CBC47CF62CD04D5592C6F98ED29D82B6062FA</PackageCertificateThumbprint>
+    <PackageCertificateThumbprint>FFE7643808BED03B857EB6872BF22075663701B7</PackageCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
     <DebugSymbols>true</DebugSymbols>
@@ -104,6 +104,7 @@
     <Compile Include="Converters\AlternatingIndexConverter.cs" />
     <Compile Include="Helpers\JsonProvider.cs" />
     <Compile Include="Models\MaintenanceCheckItem.cs" />
+    <Compile Include="Models\MaintenanceCheckList.cs" />
     <Compile Include="Models\MeasureModel.cs" />
     <Compile Include="PageTokens.cs" />
     <Compile Include="Models\EquipmentNote.cs" />

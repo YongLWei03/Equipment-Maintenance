@@ -151,21 +151,21 @@ namespace EquipmentMaintenance.ViewModels
         private List<EquipmentNote> _notes = new List<EquipmentNote> {
             new EquipmentNote {
                 Pro1 = DateTime.Now,
-                Pro2 = "通電時の電圧を確認して下さい。"
+                Pro2 = "温度高"
             },
             new EquipmentNote {
                 Pro1 = DateTime.Now,
-                Pro2 = "通電による電源ランプの点灯切替を確認して下さい。"
+                Pro2 = "温度高"
             },
             new EquipmentNote {
                 Pro1 = DateTime.Now,
-                Pro2 = "前面右扉の開放によるランプ点灯を確認して下さい。"
+                Pro2 = "振動大"
             },
-            new EquipmentNote {
-                Pro1 = DateTime.Now,
-                Pro2 = "前面左扉の開放によるランプ点灯を確認して下さい。"
-            },
-            new EquipmentNote { Pro2 = ":" }
+            //new EquipmentNote {
+            //    Pro1 = DateTime.Now,
+            //    Pro2 = "前面左扉の開放によるランプ点灯を確認して下さい。"
+            //},
+            //new EquipmentNote { Pro2 = ":" }
         };
 
 

@@ -156,11 +156,11 @@ namespace EquipmentMaintenance
                 Pro1 = DateTime.Now,
                 Pro2 = "振動大"
             },
-            //new EquipmentNote {
-            //    Pro1 = DateTime.Now,
-            //    Pro2 = "前面左扉の開放によるランプ点灯を確認して下さい。"
-            //},
-            //new EquipmentNote { Pro2 = ":" }
+            new EquipmentNote {
+                Pro1 = DateTime.Now,
+                Pro2 = "前面左扉の開放によるランプ点灯を確認して下さい。"
+            },
+            new EquipmentNote { Pro2 = ":" }
         };
 
 

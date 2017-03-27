@@ -8,8 +8,8 @@
         WindowStartupLocation="CenterScreen"
         DataContext="{Binding Path=MainWindowVM, Source={StaticResource viewModelLocator}}"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        <local:EquipmentView DataContext="{Binding Equipment}" Visibility="{Binding IsEquipmentVisible, Converter={StaticResource BoolToVis}}"/>
-        <local:EquipmentDetailView DataContext="{Binding EquipmentDetail}" Visibility="{Binding IsEquipmentDetailVisible, Converter={StaticResource BoolToVis}}"/>
-    </Grid>
+    <StackPanel>
+        <local:EquipmentView DataContext="{Binding Equipment}" Visibility="{Binding IsEquipmentVisible, Converter={StaticResource BoolToVis}, UpdateSourceTrigger=PropertyChanged}"/>
+        <local:EquipmentDetailView DataContext="{Binding EquipmentDetail}" Visibility="{Binding IsEquipmentDetailVisible, Converter={StaticResource BoolToVis}, UpdateSourceTrigger=PropertyChanged}"/>
+    </StackPanel>
 </Window>

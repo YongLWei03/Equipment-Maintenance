@@ -65,43 +65,12 @@
                     <Border x:Name="buttonBorder" BorderBrush="{StaticResource jp_ButtonBorder}" CornerRadius="2" >
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
                                           VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-                        <VisualStateManager.VisualStateGroups>
-                            <VisualStateGroup x:Name="CommonStates">
-                                
-                                <VisualStateGroup.Transitions>
-                                    <VisualTransition To="MouseOver" GeneratedDuration="0:0:0.1"/>
-                                    <VisualTransition To="Pressed" GeneratedDuration="0:0:0.1"/>
-                                </VisualStateGroup.Transitions>
-                                
-                                <VisualState x:Name="Normal" />
-                                <VisualState x:Name="MouseOver">
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="backgroudButton"  Storyboard.TargetProperty="Color" To="#269abc" />
-                                    </Storyboard>
-                                </VisualState>
-                                
-                                <VisualState x:Name="Pressed">
-                                    <Storyboard>
-                                        <ColorAnimation Storyboard.TargetName="backgroudButton"  Storyboard.TargetProperty="Color" To="#0F8DB3" />
-                                    </Storyboard>
-                                </VisualState>
-                            </VisualStateGroup>
-                        </VisualStateManager.VisualStateGroups>
-
                         <Border.Background>
                             <SolidColorBrush x:Name="backgroudButton" Color="#31b0d5"/>
                         </Border.Background>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter TargetName="buttonBorder" Property="BorderBrush" Value="#269abc"/>
-                            <Setter TargetName="buttonBorder" Property="Background" Value="#269abc"/>
-                        </Trigger>
-                        <Trigger Property="IsFocused" Value="True">
-                            <Setter TargetName="buttonBorder" Property="BorderBrush" Value="#0F8DB3"/>
-                            <Setter TargetName="buttonBorder" Property="Background" Value="#269abc"/>
-                        </Trigger>
-                        <Trigger Property="IsDefault" Value="True">
                             <Setter TargetName="buttonBorder" Property="BorderBrush" Value="#269abc"/>
                             <Setter TargetName="buttonBorder" Property="Background" Value="#269abc"/>
                         </Trigger>

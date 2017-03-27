@@ -8,7 +8,7 @@
         WindowStartupLocation="CenterScreen"
         WindowState="Maximized"
         DataContext="{Binding Path=MainWindowVM, Source={StaticResource viewModelLocator}}"
-        Title="MainWindow">
+        Title="設備保全管理システム">
     <Grid Margin="15">
         <Grid Visibility="{Binding IsEquipmentVisible, Converter={StaticResource BoolToVis}}">
             <local:EquipmentView DataContext="{Binding Equipment}"/>

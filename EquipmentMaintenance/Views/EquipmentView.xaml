@@ -120,30 +120,38 @@
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
-                
-                <DataGridTemplateColumn Header="結果">
+
+                <DataGridTemplateColumn Header="結果" Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox IsChecked="{Binding Pro3}" VerticalContentAlignment="Center"  
+                            <Grid>
+                                <Grid.Resources>
+                                    <Style TargetType="Border">
+                                        <Setter Property="BorderThickness" Value="0,0,0.5,0"/>
+                                        <Setter Property="Margin" Value="0"/>
+                                        <Setter Property="Padding" Value="0"/>
+                                        <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
+                                        <Setter Property="VerticalAlignment" Value="Stretch"/>
+                                    </Style>
+                                </Grid.Resources>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition/>
+                                </Grid.ColumnDefinitions>
+                                <Border Grid.Column="0">
+                                    <CheckBox  IsChecked="{Binding Pro3}" VerticalContentAlignment="Center"  
                                       Content="OK" Margin="10,0" HorizontalContentAlignment="Center"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn >
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <CheckBox VerticalContentAlignment="Center" IsChecked="{Binding Pro4}" 
+                                </Border>
+                                <Border  Grid.Column="1">
+                                    <CheckBox VerticalContentAlignment="Center" IsChecked="{Binding Pro4}" 
                                       Content="NG" Margin="10,0" HorizontalContentAlignment="Center"/>
-                        </DataTemplate>
-                    </DataGridTemplateColumn.CellTemplate>
-                </DataGridTemplateColumn>
-
-                <DataGridTemplateColumn  Width="*">
-                    <DataGridTemplateColumn.CellTemplate>
-                        <DataTemplate>
-                            <TextBox Background="Transparent" VerticalContentAlignment="Center"  
-                                     BorderThickness="0" Margin="10,0"/>
+                                </Border>
+                                <Border Grid.Column="2">
+                                    <TextBox Background="Transparent" BorderThickness="0" VerticalContentAlignment="Center" Margin="10,0"/>
+                                </Border>
+                            </Grid>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

@@ -43,6 +43,8 @@
                 <RowDefinition Height="10"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="10"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -84,22 +86,21 @@
             </Border>
             <TextBox Grid.Row="4" Grid.Column="3" Text="2017/03/24 18:00" IsReadOnly="True"/>
 
-            <Border Grid.Row="4">
+            <Border Grid.Row="6">
                 <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業者</TextBlock>
             </Border>
-            <TextBox Grid.Row="4" Grid.Column="1" Text="東芝 一郎" IsReadOnly="True"/>
-            <Border Grid.Row="4" Grid.Column="2">
+            <TextBox Grid.Row="6" Grid.Column="1" Text="東芝 一郎" IsReadOnly="True"/>
+            <Border Grid.Row="6" Grid.Column="2">
                 <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業状態</TextBlock>
             </Border>
-            <TextBox Grid.Row="4" Grid.Column="3" Text="作業中" IsReadOnly="True"/>
+            <TextBox Grid.Row="6" Grid.Column="3" Text="作業中" IsReadOnly="True"/>
         </Grid>
 
-        <DataGrid x:Name="datagrid" Grid.Row="3"
-                          ItemsSource="{Binding CheckList}">
-
+        <DataGrid x:Name="datagrid" Grid.Row="3" ItemsSource="{Binding CheckList}">
             <DataGrid.Resources>
                 <Style TargetType="DataGrid">
                     <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="GridLinesVisibility" Value="None"/>
                     <Setter Property="CanUserSortColumns" Value="True"/>
                     <Setter Property="AutoGenerateColumns" Value="False"/>
                     <Setter Property="CanUserAddRows" Value="False"/>
@@ -116,7 +117,11 @@
                     <Setter Property="CellStyle">
                         <Setter.Value>
                             <Style TargetType="DataGridCell">
-                                <Setter Property="BorderThickness" Value="0"/>
+                                <Setter Property="BorderThickness" Value="0,0,0.5,0.5"/>
+                                <Setter Property="Margin" Value="0"/>
+                                <Setter Property="Padding" Value="0"/>
+                                <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
+                                <Setter Property="VerticalAlignment" Value="Center"/>
                             </Style>
                         </Setter.Value>
                     </Setter>
@@ -138,34 +143,13 @@
                     </Setter>
                 </Style>
 
-                <Style TargetType="DataGridCell" >
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type DataGridCell}">
-                                <ContentPresenter VerticalAlignment="Center"/>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                    <Style.Triggers>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="#F0F0F0" />
-                            <Setter Property="Foreground" Value="Black" />
-                            <Setter Property="BorderBrush" Value="#F0F0F0" />
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-
                 <Style TargetType="DataGridRow">
                     <Setter Property="Background" Value="{Binding Converter={StaticResource ColorConvert}}"/>
-                    <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
-                    <Setter Property="BorderThickness" Value="1"/>
                     <Style.Triggers>
-                        <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="Background" Value="#F2F2F5"/>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{Binding}"/>
+                            <Setter Property="Foreground" Value="{Binding}"/>
                         </Trigger>
-                        <DataTrigger Binding="{Binding IsNewReferIn}" Value="True">
-                            <Setter Property="Background" Value="#f7fbe2" />
-                        </DataTrigger>
                     </Style.Triggers>
                 </Style>
             </DataGrid.Resources>
@@ -174,9 +158,8 @@
                 <DataGridTextColumn Header="No." Binding="{ Binding Path=No }" MinWidth="150"/>
                 <DataGridTextColumn Header="点検項目" Binding="{Binding Path=Pro1}" MinWidth="120"/>
                 <DataGridTextColumn Header="点検説明" Binding="{Binding Path=Pro2}" MinWidth="120"/>
-                <DataGridCheckBoxColumn Header="結果" Binding="{Binding Path=Pro3}" MinWidth="120"/>
 
-                <DataGridTemplateColumn MinWidth="150">
+                <DataGridTemplateColumn MinWidth="150" Header="結果">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
                             <CheckBox IsChecked="{Binding Pro3}" Content="OK"/>
@@ -192,10 +175,10 @@
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn  MinWidth="150">
+                <DataGridTemplateColumn  Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBox Background="Transparent"/>
+                            <TextBox Background="Transparent" BorderThickness="0"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

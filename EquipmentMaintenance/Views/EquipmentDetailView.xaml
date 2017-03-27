@@ -94,7 +94,7 @@
                 </StackPanel>
                 
                 <Border  Grid.Row="1" Margin="0,15,15,10" Padding="0"
-                            BorderBrush="{StaticResource jp_AltBorder}" 
+                            BorderBrush="Blue" 
                             BorderThickness="1" Background="Transparent">
 
                     <lvc:CartesianChart 
@@ -118,8 +118,8 @@
                         <lvc:CartesianChart.AxisY>
                             <lvc:Axis IsMerged="False" LabelFormatter="{Binding YFormatter}">
                                 <lvc:Axis.Sections>
-                                    <lvc:AxisSection Value="30001" Stroke="{StaticResource jp_Foreground}"  StrokeThickness="0.5"  StrokeDashArray="20"/>
-                                    <lvc:AxisSection Value="12501" Stroke="{StaticResource jp_Foreground}"  StrokeThickness="0.5"  StrokeDashArray="20"/>
+                                    <lvc:AxisSection Value="30001" Stroke="{StaticResource jp_ChartLimitLine}"  StrokeThickness="1.5"  StrokeDashArray="10"/>
+                                    <lvc:AxisSection Value="12501" Stroke="{StaticResource jp_ChartLimitLine}"  StrokeThickness="1.5"  StrokeDashArray="10"/>
                                 </lvc:Axis.Sections>
                                 <lvc:Axis.Separator>
                                     <lvc:Separator IsEnabled="True" Step="{Binding AxisYStep}"/>

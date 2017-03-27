@@ -8,6 +8,8 @@
     <SolidColorBrush x:Key="jp_Border" Color="#697D83"/>
     <SolidColorBrush x:Key="jp_Foreground" Color="#333"/>
 
+    <SolidColorBrush x:Key="jp_ChartLimitLine" Color="#B4B282"/>
+
 
     <SolidColorBrush x:Key="jp_ButtonBackgroud" Color="#30b2d9"/>
     <SolidColorBrush x:Key="jp_ButtonBorder" Color="#46b8da"/>
@@ -45,7 +47,7 @@
     <Style TargetType="TextBox">
         <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
         <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
-        <Setter Property="BorderThickness" Value="0,0,0,0.5"/>
+        <Setter Property="BorderThickness" Value="0,0,0,1"/>
         <Setter Property="Padding" Value="6"/>
         <Setter Property="FontSize" Value="15"/>
         <Setter Property="MinWidth" Value="90"/>

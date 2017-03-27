@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EquipmentMaintenance.ViewModels
+namespace EquipmentMaintenance
 {
     public class EquipmentNote
     {

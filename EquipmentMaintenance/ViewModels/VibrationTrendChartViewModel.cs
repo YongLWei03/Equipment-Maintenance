@@ -5,7 +5,7 @@ using Prism.Mvvm;
 using System;
 using System.Windows.Media;
 
-namespace EquipmentMaintenance.ViewModels
+namespace EquipmentMaintenance
 {
     public class VibrationTrendChartViewModel : BindableBase
     {

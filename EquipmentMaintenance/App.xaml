@@ -5,6 +5,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <BooleanToVisibilityConverter x:Key="BoolToVis"/>
+            
+            <local:ViewModelLocator x:Key="viewModelLocator"/>
             <local:AlternatingIndexConverter x:Key="ColorConvert"/>
 
             <ResourceDictionary.MergedDictionaries>

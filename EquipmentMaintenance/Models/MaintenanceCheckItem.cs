@@ -1,4 +1,4 @@
-﻿namespace EquipmentMaintenance.Models
+﻿namespace EquipmentMaintenance
 {
     public class MaintenanceCheckItem
     {

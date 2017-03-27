@@ -1,16 +1,23 @@
 ﻿using Prism.Commands;
 using Prism.Mvvm;
-using System;
 using System.Collections.Generic;
 using System.Windows.Input;
+using System.Windows.Navigation;
 
 namespace EquipmentMaintenance
 {
-    public class EquipmentViewModel : BindableBase
+    public class MainWindowViewModel : BindableBase
     {
-        public EventHandler DetailClick;
+        public EquipmentDetailViewModel EquipmentDetail { get; private set; }
+        public EquipmentViewModel Equipment { get; private set; }
 
-        public EquipmentViewModel() { }
+        public MainWindowViewModel(
+            EquipmentDetailViewModel equipmentDetail,
+            EquipmentViewModel equipment)
+        {
+            Equipment = equipment;
+            EquipmentDetail = equipmentDetail;
+        }
 
         private ICommand _gotoDetailCommand;
         public ICommand GoToDetailCommand
@@ -20,7 +27,7 @@ namespace EquipmentMaintenance
                 if (_gotoDetailCommand == null)
                 {
                     _gotoDetailCommand = new DelegateCommand(()=> {
-                        this.DetailClick?.Invoke(this, EventArgs.Empty);
+                        //_navigationService.Navigate(PageTokens.EquipmentDetailPage, null);
                     });
                 }
                 return _gotoDetailCommand;
@@ -73,7 +80,7 @@ namespace EquipmentMaintenance
                 Pro3 = false,
                 Pro4 = true
             },
-            //new MaintenanceCheckItem { No = 5, Pro1 = ":", Pro2 = ":", Pro3 = false, Pro4 = false }
+            new MaintenanceCheckItem { No = 5, Pro1 = ":", Pro2 = ":", Pro3 = false, Pro4 = false }
         };
     }
 }

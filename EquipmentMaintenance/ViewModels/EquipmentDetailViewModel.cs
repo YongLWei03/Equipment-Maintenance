@@ -4,24 +4,19 @@ using Prism.Mvvm;
 using System;
 using System.Collections.Generic;
 using System.Windows.Input;
-using System.Windows.Navigation;
 
-namespace EquipmentMaintenance.ViewModels
+namespace EquipmentMaintenance
 {
     public class EquipmentDetailViewModel : BindableBase
     {
-        private readonly NavigationService _navigationService;
-
+        public EventHandler CloseEvent;
         public TemperatureTrendChartViewModel TemperatureChart { get; private set; }
         public VibrationTrendChartViewModel VibrationChart { get; private set; }
 
         public EquipmentDetailViewModel(
-            NavigationService navigationService,
             TemperatureTrendChartViewModel temperatureChart,
             VibrationTrendChartViewModel vibrationChart)
         {
-            _navigationService = navigationService;
-
             TemperatureChart = temperatureChart;
             VibrationChart = vibrationChart;
 
@@ -124,7 +119,7 @@ namespace EquipmentMaintenance.ViewModels
                 if (_backToListCommand == null)
                 {
                     _backToListCommand = new DelegateCommand(() => {
-                        _navigationService.GoBack();
+                        this.CloseEvent?.Invoke(this, EventArgs.Empty);
                     });
                 }
                 return _backToListCommand;
@@ -139,7 +134,7 @@ namespace EquipmentMaintenance.ViewModels
                 if (_closeCommand == null)
                 {
                     _closeCommand = new DelegateCommand(() => {
-                        _navigationService.GoBack();
+                        this.CloseEvent?.Invoke(this, EventArgs.Empty);
                     });
                 }
                 return _closeCommand;

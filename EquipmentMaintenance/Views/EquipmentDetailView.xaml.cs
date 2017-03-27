@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace EquipmentMaintenance.Views
+namespace EquipmentMaintenance
 {
     public sealed partial class EquipmentDetailView : UserControl
     {

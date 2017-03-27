@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10" xmlns:mp="http://schemas.microsoft.com/appx/2014/phone/manifest" xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10" IgnorableNamespaces="uap mp">
-  <Identity Name="6685765c-6cd0-4dec-9df3-9f0e3de56f31" Publisher="CN=minh.nguyen" Version="1.0.6.0" />
+  <Identity Name="6685765c-6cd0-4dec-9df3-9f0e3de56f31" Publisher="CN=minh.nguyen" Version="1.0.8.0" />
   <mp:PhoneIdentity PhoneProductId="6685765c-6cd0-4dec-9df3-9f0e3de56f31" PhonePublisherId="00000000-0000-0000-0000-000000000000" />
   <Properties>
     <DisplayName>設備保全管理システム</DisplayName>
@@ -9,6 +9,7 @@
   </Properties>
   <Dependencies>
     <TargetDeviceFamily Name="Windows.Universal" MinVersion="10.0.0.0" MaxVersionTested="10.0.0.0" />
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.14393.0" MaxVersionTested="10.0.14393.0" />
   </Dependencies>
   <Resources>
     <Resource Language="x-generate" />
@@ -28,7 +29,12 @@
       </uap:VisualElements>
     </Application>
   </Applications>
+  <Extensions xmlns:desktop="http://schemas.microsoft.com/appx/manifest/desktop/windows10">
+    <desktop:Extension Category="windows.fullTrustProcess" Executable="fpcalc.exe" />
+  </Extensions>
   <Capabilities>
     <Capability Name="internetClient" />
+    <Capability xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+                 Name="runFullTrust"/>
   </Capabilities>
 </Package>

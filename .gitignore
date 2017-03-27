@@ -7,3 +7,6 @@
 /EquipmentMaintenance/obj/Debug
 *.suo
 /.vs/EquipmentMaintenance/v15/.suo
+/EquipmentMaintenance/bin/Release
+/EquipmentMaintenance/obj/Release/TempPE
+/EquipmentMaintenance/obj/Release

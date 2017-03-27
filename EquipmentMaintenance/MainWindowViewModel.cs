@@ -1,8 +1,6 @@
-﻿using Prism.Commands;
-using Prism.Mvvm;
+﻿using Prism.Mvvm;
 using System.Collections.Generic;
-using System.Windows.Input;
-using System.Windows.Navigation;
+using System;
 
 namespace EquipmentMaintenance
 {
@@ -16,37 +14,42 @@ namespace EquipmentMaintenance
             EquipmentViewModel equipment)
         {
             Equipment = equipment;
+            Equipment.DetailClick += GoToDetail;
+
             EquipmentDetail = equipmentDetail;
+            EquipmentDetail.CloseEvent += DetailClose;
+
+            this.IsEquipmentVisible = true;
         }
 
-        private ICommand _gotoDetailCommand;
-        public ICommand GoToDetailCommand
+        private bool _isEquipmentVisible;
+        public bool IsEquipmentVisible
         {
-            get
+            get { return _isEquipmentVisible; }
+            set
             {
-                if (_gotoDetailCommand == null)
-                {
-                    _gotoDetailCommand = new DelegateCommand(()=> {
-                        //_navigationService.Navigate(PageTokens.EquipmentDetailPage, null);
-                    });
-                }
-                return _gotoDetailCommand;
+                SetProperty(ref _isEquipmentVisible, value);
+                this.IsEquipmentDetailVisible = !value;
             }
         }
 
-        private ICommand _closeCommand;
-        public ICommand CloseCommand
+        private bool _isEquipmentDetailVisible = true;
+        public bool IsEquipmentDetailVisible
         {
-            get
-            {
-                if (_closeCommand == null)
-                {
-                    _closeCommand = new DelegateCommand(() => {
-                        System.Windows.Application.Current.Shutdown();
-                    });
-                }
-                return _closeCommand;
-            }
+            get { return _isEquipmentDetailVisible; }
+            set { SetProperty(ref _isEquipmentDetailVisible, value); }
+        }
+
+        private void DetailClose(object sender, EventArgs e)
+        {
+            var equipmentDetail = (sender as EquipmentDetailViewModel);
+            this.IsEquipmentVisible = true;
+        }
+
+        private void GoToDetail(object sender, EventArgs e)
+        {
+            var equipment = (sender as EquipmentViewModel);
+            this.IsEquipmentVisible = false;
         }
 
         public List<MaintenanceCheckItem> CheckList { get { return _checkList; } }

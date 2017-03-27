@@ -6,10 +6,15 @@
         xmlns:local="clr-namespace:EquipmentMaintenance"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
+        WindowState="Maximized"
         DataContext="{Binding Path=MainWindowVM, Source={StaticResource viewModelLocator}}"
-        Title="MainWindow" Height="350" Width="525">
-    <StackPanel>
-        <local:EquipmentView DataContext="{Binding Equipment}" Visibility="{Binding IsEquipmentVisible, Converter={StaticResource BoolToVis}, UpdateSourceTrigger=PropertyChanged}"/>
-        <local:EquipmentDetailView DataContext="{Binding EquipmentDetail}" Visibility="{Binding IsEquipmentDetailVisible, Converter={StaticResource BoolToVis}, UpdateSourceTrigger=PropertyChanged}"/>
-    </StackPanel>
+        Title="MainWindow">
+    <Grid Margin="15">
+        <Grid Visibility="{Binding IsEquipmentVisible, Converter={StaticResource BoolToVis}}">
+            <local:EquipmentView DataContext="{Binding Equipment}"/>
+        </Grid>
+        <Grid Visibility="{Binding IsEquipmentDetailVisible, Converter={StaticResource BoolToVis}}">
+            <local:EquipmentDetailView DataContext="{Binding EquipmentDetail}"/>
+        </Grid>
+    </Grid>
 </Window>

@@ -12,7 +12,9 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition/>
+            <RowDefinition Height="10"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
@@ -28,15 +30,19 @@
 
         <Grid Grid.Row="2">
             <Grid.Resources>
-                <Style TargetType="TextBlock"/>
+                <Style TargetType="Border" BasedOn="{StaticResource jp_BorderTextBlock}"/>
+                <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+                    <Setter Property="Margin" Value="10,0,20,0"/>
+                </Style>
             </Grid.Resources>
 
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
                 <RowDefinition Height="Auto"/>
+                <RowDefinition Height="10"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="Auto"/>
-                <RowDefinition/>
+                <RowDefinition Height="10"/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto"/>
@@ -56,120 +62,150 @@
             </Border>
             <TextBox Grid.Row="0" Grid.Column="3" Text="噴出成形器 EC180SX" IsReadOnly="True"/>
 
-            <Border Grid.Row="1" Grid.Column="0">
+            <Border Grid.Row="2" Grid.Column="0">
                 <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業番号</TextBlock>
             </Border>
-            <TextBox Grid.Row="1" Grid.Column="1" Text="103" IsReadOnly="True"/>
-            <Border Grid.Row="1" Grid.Column="2">
+            <TextBox Grid.Row="2" Grid.Column="1" Text="103" IsReadOnly="True"/>
+            <Border Grid.Row="2" Grid.Column="2">
                 <TextBlock Style="{StaticResource jp_TextBlockInBorder}">分類</TextBlock>
             </Border>
-            <TextBox Grid.Row="1" Grid.Column="3" Text="点検" IsReadOnly="True"/>
-            <Border Grid.Row="1" Grid.Column="4">
+            <TextBox Grid.Row="2" Grid.Column="3" Text="点検" IsReadOnly="True"/>
+            <Border Grid.Row="2" Grid.Column="4">
                 <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業名</TextBlock>
             </Border>
-            <TextBox Grid.Row="1" Grid.Column="5" Text="簡易点検作業" IsReadOnly="True"/>
+            <TextBox Grid.Row="2" Grid.Column="5" Text="簡易点検作業" IsReadOnly="True"/>
 
-            <Border Grid.Row="2" Grid.Column="0">
+            <Border Grid.Row="4" Grid.Column="0">
                 <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業開始予定日時</TextBlock>
             </Border>
-            <TextBox Grid.Row="2" Grid.Column="1" Text="2017/03/23 17:50" IsReadOnly="True"/>
-            <Border Grid.Row="2" Grid.Column="2">
+            <TextBox Grid.Row="4" Grid.Column="1" Text="2017/03/23 17:50" IsReadOnly="True"/>
+            <Border Grid.Row="4" Grid.Column="2">
                 <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業完了予定日時</TextBlock>
             </Border>
-            <TextBox Grid.Row="2" Grid.Column="3" Text="2017/03/24 18:00" IsReadOnly="True"/>
+            <TextBox Grid.Row="4" Grid.Column="3" Text="2017/03/24 18:00" IsReadOnly="True"/>
 
-            <Border Grid.Row="3">
+            <Border Grid.Row="4">
                 <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業者</TextBlock>
             </Border>
-            <TextBox Grid.Row="3" Grid.Column="1" Text="東芝 一郎" IsReadOnly="True"/>
-            <Border Grid.Row="3" Grid.Column="2">
+            <TextBox Grid.Row="4" Grid.Column="1" Text="東芝 一郎" IsReadOnly="True"/>
+            <Border Grid.Row="4" Grid.Column="2">
                 <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業状態</TextBlock>
             </Border>
-            <TextBox Grid.Row="3" Grid.Column="3" Text="作業中" IsReadOnly="True"/>
-
-            <ListView Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="6" 
-                          ItemsSource="{Binding CheckList}">
-                <ListView.ItemContainerStyle>
-                    <Style TargetType="ListViewItem">
-                        <Setter Property="HorizontalContentAlignment"  Value="Stretch"/>
-                        <Setter Property="VerticalContentAlignment"  Value="Stretch"/>
-                        <Setter Property="Margin"  Value="0"/>
-                        <Setter Property="Padding"  Value="0"/>
-                        <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
-                        <Setter Property="BorderThickness" Value="1,0,1,1"/>
-                    </Style>
-                </ListView.ItemContainerStyle>
-                <ListView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-                                Background="{Binding Converter={StaticResource ColorConvert}}">
-
-                            <Grid.Resources>
-                                <Style TargetType="Border">
-                                    <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
-                                    <Setter Property="BorderThickness" Value="0,0,1,0"/>
-                                </Style>
-                                <Style TargetType="TextBlock">
-                                    <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
-                                    <Setter Property="Margin" Value="15,0"/>
-                                    <Setter Property="VerticalAlignment" Value="Center"/>
-                                    <Setter Property="TextWrapping" Value="Wrap"/>
-                                </Style>
-                                <Style TargetType="TextBox">
-                                    <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
-                                    <Setter Property="BorderBrush" Value="Transparent"/>
-                                    <Setter Property="Margin" Value="15,0"/>
-                                    <Setter Property="VerticalAlignment" Value="Center"/>
-                                    <Setter Property="VerticalContentAlignment" Value="Bottom"/>
-                                    <Setter Property="BorderThickness" Value="1"/>
-                                    <Setter Property="TextWrapping" Value="Wrap"/>
-                                </Style>
-                                <Style TargetType="CheckBox">
-                                    <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
-                                    <Setter Property="Margin" Value="15,0"/>
-                                    <Setter Property="VerticalAlignment" Value="Center"/>
-                                    <Setter Property="MinWidth" Value="30"/>
-                                </Style>
-                            </Grid.Resources>
-
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="70"/>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="*"/>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="100"/>
-                            </Grid.ColumnDefinitions>
-
-                            <Border Grid.Column="0">
-                                <TextBlock Text="{Binding No}" TextAlignment="Right"/>
-                            </Border>
-                            <Border Grid.Row="0" Grid.Column="1">
-                                <TextBlock Grid.Column="1" Text="{Binding Pro1}"/>
-                            </Border>
-                            <Border Grid.Row="0" Grid.Column="2">
-                                <TextBlock Text="{Binding Pro2}"/>
-                            </Border>
-                            <Border Grid.Row="0" Grid.Column="3">
-                                <CheckBox IsChecked="{Binding Pro3}" Content="OK"/>
-                            </Border>
-                            <Border Grid.Row="0" Grid.Column="4">
-                                <CheckBox IsChecked="{Binding Pro4}" Content="NG" />
-                            </Border>
-                            <Border Grid.Row="0" Grid.Column="5">
-                                <TextBox Margin="0" Padding="10" VerticalAlignment="Stretch" HorizontalAlignment="Stretch"/>
-                            </Border>
-                        </Grid>
-                    </DataTemplate>
-                </ListView.ItemTemplate>
-            </ListView>
+            <TextBox Grid.Row="4" Grid.Column="3" Text="作業中" IsReadOnly="True"/>
         </Grid>
 
-        <StackPanel Grid.Row="3" Orientation="Horizontal">
+        <DataGrid x:Name="datagrid" Grid.Row="3"
+                          ItemsSource="{Binding CheckList}">
+
+            <DataGrid.Resources>
+                <Style TargetType="DataGrid">
+                    <Setter Property="Background" Value="Transparent"/>
+                    <Setter Property="CanUserSortColumns" Value="True"/>
+                    <Setter Property="AutoGenerateColumns" Value="False"/>
+                    <Setter Property="CanUserAddRows" Value="False"/>
+                    <Setter Property="CanUserDeleteRows" Value="False"/>
+                    <Setter Property="SelectionMode" Value="Extended"/>
+                    <Setter Property="IsEnabled" Value="True"/>
+                    <Setter Property="IsReadOnly" Value="True"/>
+                    <Setter Property="IsSynchronizedWithCurrentItem" Value="True"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource jp_Border}"/>
+                    <Setter Property="HeadersVisibility" Value="Column"/>
+                    <Setter Property="VerticalContentAlignment" Value="Center"/>
+                    <Setter Property="SelectionUnit" Value="FullRow"/>
+                    <Setter Property="CellStyle">
+                        <Setter.Value>
+                            <Style TargetType="DataGridCell">
+                                <Setter Property="BorderThickness" Value="0"/>
+                            </Style>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+
+                <Style TargetType="DataGridColumnHeader" >
+                    <Setter Property="Height" Value="32"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate>
+                                <Border Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" 
+                                        Style="{StaticResource jp_BorderTextBlock}" 
+                                        BorderThickness="0,0,1,0" BorderBrush="{StaticResource jp_AltBorder}">
+                                    <TextBlock Style="{StaticResource jp_TextBlockInBorder}" Text="{Binding}"
+                                        HorizontalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+
+                <Style TargetType="DataGridCell" >
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type DataGridCell}">
+                                <ContentPresenter VerticalAlignment="Center"/>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="#F0F0F0" />
+                            <Setter Property="Foreground" Value="Black" />
+                            <Setter Property="BorderBrush" Value="#F0F0F0" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+
+                <Style TargetType="DataGridRow">
+                    <Setter Property="Background" Value="{Binding Converter={StaticResource ColorConvert}}"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#F2F2F5"/>
+                        </Trigger>
+                        <DataTrigger Binding="{Binding IsNewReferIn}" Value="True">
+                            <Setter Property="Background" Value="#f7fbe2" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </DataGrid.Resources>
+
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="No." Binding="{ Binding Path=No }" MinWidth="150"/>
+                <DataGridTextColumn Header="点検項目" Binding="{Binding Path=Pro1}" MinWidth="120"/>
+                <DataGridTextColumn Header="点検説明" Binding="{Binding Path=Pro2}" MinWidth="120"/>
+                <DataGridCheckBoxColumn Header="結果" Binding="{Binding Path=Pro3}" MinWidth="120"/>
+
+                <DataGridTemplateColumn MinWidth="150">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Pro3}" Content="OK"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn  MinWidth="150">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Pro4}" Content="NG"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn  MinWidth="150">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBox Background="Transparent"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <StackPanel Grid.Row="6" Orientation="Horizontal">
             <Button Width="130">報告事項入力</Button>
             <Button Width="130">交換部品入力</Button>
             <Button Grid.Column="2" Width="130">添付</Button>
         </StackPanel>
     </Grid>
-
 </UserControl>

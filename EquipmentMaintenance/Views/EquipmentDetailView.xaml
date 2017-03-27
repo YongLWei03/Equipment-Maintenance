@@ -7,11 +7,8 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:prismMvvm="using:Prism.Windows.Mvvm"
     mc:Ignorable="d">
+    
     <Grid>
-        <Grid.Resources>
-            <Style TargetType="TextBlock"/>
-        </Grid.Resources>
-
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -30,9 +27,20 @@
         </StackPanel>
 
         <Grid Grid.Row="2">
+            <Grid.Resources>
+                <Style TargetType="Border" BasedOn="{StaticResource jp_BorderTextBlock}"/>
+                <Style TargetType="TextBox" BasedOn="{StaticResource {x:Type TextBox}}">
+                    <Setter Property="Margin" Value="10,0,20,0"/>
+                </Style>
+            </Grid.Resources>
+
             <Grid.RowDefinitions>
                 <RowDefinition/>
+                <RowDefinition Height="10"/>
                 <RowDefinition/>
+                <RowDefinition Height="10"/>
+                <RowDefinition/>
+                <RowDefinition Height="10"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
@@ -52,22 +60,22 @@
             </Border>
             <TextBox Grid.Row="0" Grid.Column="3" Text="噴出成形器 EC180SX" IsReadOnly="True"/>
 
-            <Border Grid.Row="1">
+            <Border Grid.Row="2">
                 <TextBlock Style="{StaticResource jp_TextBlockInBorder}">設備状態</TextBlock>
             </Border>
-            <TextBox Grid.Row="1"  Grid.Column="1" Text="異常なし" IsReadOnly="True" Background="Lime"/>
+            <TextBox Grid.Row="2"  Grid.Column="1" Text="異常なし" IsReadOnly="True" Background="Lime"/>
 
-            <Border Grid.Row="2">
+            <Border Grid.Row="4">
                 <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業者</TextBlock>
             </Border>
-            <TextBox Grid.Row="2" Grid.Column="1" Text="東芝 一郎" IsReadOnly="True"/>
-            <Border Grid.Row="2" Grid.Column="2">
+            <TextBox Grid.Row="4" Grid.Column="1" Text="東芝 一郎" IsReadOnly="True"/>
+            <Border Grid.Row="4" Grid.Column="2">
                 <TextBlock Style="{StaticResource jp_TextBlockInBorder}">作業状態</TextBlock>
             </Border>
-            <TextBox Grid.Row="2" Grid.Column="3" Text="作業中" IsReadOnly="True"/>
+            <TextBox Grid.Row="4" Grid.Column="3" Text="作業中" IsReadOnly="True"/>
         </Grid>
 
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="6">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="7*"/>
                 <ColumnDefinition Width="3*"/>
@@ -84,17 +92,15 @@
                     <Button Margin="0,0,5,0" Width="60" Command="{Binding Graph2Command}">Graph2</Button>
                     <Button Margin="0,0,15,0" Width="60" Command="{Binding Graph3Command}">Graph3</Button>
                 </StackPanel>
-
+                
                 <Border  Grid.Row="1" Margin="0,15,15,10" Padding="0"
-                            BorderBrush="{StaticResource jp_Backgroud}" 
+                            BorderBrush="{StaticResource jp_AltBorder}" 
                             BorderThickness="1" Background="Transparent">
 
                     <lvc:CartesianChart 
                             Margin="0,15,15,10" 
                             Series="{Binding Series}"
-                            LegendLocation="Right"
-                            BorderBrush="{StaticResource jp_AltBorder}">
-
+                            LegendLocation="Right" >
                         <lvc:CartesianChart.Resources>
                             <Style TargetType="Border">
                                 <Setter Property="Background" Value="Transparent"/>
@@ -130,12 +136,11 @@
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <Border Style="{x:Null}" Height="40" VerticalAlignment="Stretch" Margin="0,0,0,6">
-                    <TextBlock Style="{StaticResource jp_TextBlockHeader}" VerticalAlignment="Stretch">センサー情報</TextBlock>
+                <Border Style="{x:Null}" Height="32" VerticalAlignment="Center">
+                    <TextBlock Style="{StaticResource jp_TextBlockHeader}" VerticalAlignment="Center">センサー情報</TextBlock>
                 </Border>
 
-                <ListView Grid.Row="1" Margin="0,0,0,10" 
-                              ItemsSource="{Binding Notes}">
+                <ListView Grid.Row="1" Margin="0,15,0,10" ItemsSource="{Binding Notes}">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="ListViewItem">
                             <Setter Property="HorizontalContentAlignment"  Value="Stretch"/>
@@ -144,6 +149,25 @@
                             <Setter Property="Padding"  Value="0"/>
                             <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
                             <Setter Property="BorderThickness" Value="1,0,1,1"/>
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate>
+                                        <ControlTemplate.Triggers>
+                                            <Trigger Property="IsMouseOver" Value="true">
+                                                <Setter Property="BorderBrush" Value="#FF88CBEB"/>
+                                                <Setter Property="Visibility" Value="Visible"/>
+                                                <Setter Property="Background" Value="Transparent"/>
+                                            </Trigger>
+                                            <Trigger Property="Height" Value="Auto">
+                                                <Setter Property="MinHeight" Value="20"/>
+                                            </Trigger>
+                                            <Trigger Property="IsEnabled" Value="false">
+                                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                            </Trigger>
+                                        </ControlTemplate.Triggers>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
                         </Style>
                     </ListView.ItemContainerStyle>
                     <ListView.ItemTemplate>

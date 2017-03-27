@@ -14,15 +14,15 @@
     <SolidColorBrush x:Key="jp_ButtonHover" Color="#5bc0de"/>
     <SolidColorBrush x:Key="jp_ButtonClick" Color="#0F8DB3"/>
 
-    <Style TargetType="Border">
+    <Style TargetType="Border" x:Key="jp_BorderTextBlock">
         <Setter Property="Background" Value="{StaticResource jp_Backgroud}"/>
     </Style>
     
-    <Style TargetType="Border" x:Key="jp_BorderLine">
+    <!--<Style TargetType="Border" x:Key="jp_BorderLine">
         <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
         <Setter Property="Height" Value="1"/>
-    </Style>
+    </Style>-->
 
     <Style TargetType="TextBlock" x:Key="jp_TextBlockInBorder">
         <Setter Property="Foreground" Value="White"/>

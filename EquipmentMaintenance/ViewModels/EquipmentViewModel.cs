@@ -72,8 +72,7 @@ namespace EquipmentMaintenance
                 Pro2 = "前面左扉の開放によるランプ点灯を確認して下さい。",
                 Pro3 = false,
                 Pro4 = true
-            },
-            new MaintenanceCheckItem { No = 5, Pro1 = ":", Pro2 = ":", Pro3 = false, Pro4 = false }
+            }
         };
     }
 }

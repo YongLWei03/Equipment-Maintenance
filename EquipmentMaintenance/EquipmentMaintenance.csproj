@@ -95,11 +95,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Bootstrapper.cs" />
-    <Compile Include="Converters\AlternatingIndexConverter.cs" />
+    <Compile Include="Applications\Bootstrapper.cs" />
     <Compile Include="MainWindowViewModel.cs" />
-    <Compile Include="PageTokens.cs" />
-    <Compile Include="ViewModelLocator.cs" />
+    <Compile Include="Applications\ViewModelLocator.cs" />
     <Compile Include="ViewModels\EquipmentDetailViewModel.cs" />
     <Compile Include="ViewModels\EquipmentViewModel.cs" />
     <Compile Include="ViewModels\TemperatureTrendChartViewModel.cs" />

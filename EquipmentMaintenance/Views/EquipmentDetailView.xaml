@@ -5,7 +5,6 @@
     xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:prismMvvm="using:Prism.Windows.Mvvm"
     mc:Ignorable="d">
     
     <Grid>
@@ -75,7 +74,7 @@
             <TextBox Grid.Row="4" Grid.Column="3" Text="作業中" IsReadOnly="True"/>
         </Grid>
 
-        <Grid Grid.Row="6">
+        <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="7*"/>
                 <ColumnDefinition Width="3*"/>
@@ -88,9 +87,9 @@
                 </Grid.RowDefinitions>
 
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Margin="0">
-                    <Button Margin="0,0,5,0" Width="60" Command="{Binding Graph1Command}">Graph1</Button>
-                    <Button Margin="0,0,5,0" Width="60" Command="{Binding Graph2Command}">Graph2</Button>
-                    <Button Margin="0,0,15,0" Width="60" Command="{Binding Graph3Command}">Graph3</Button>
+                    <Button Margin="0,0,5,0" Width="80" Command="{Binding Graph1Command}">Graph1</Button>
+                    <Button Margin="0,0,5,0" Width="80" Command="{Binding Graph2Command}">Graph2</Button>
+                    <Button Margin="0,0,15,0" Width="80" Command="{Binding Graph3Command}">Graph3</Button>
                 </StackPanel>
                 
                 <Border  Grid.Row="1" Margin="0,15,15,10" Padding="0"
@@ -130,94 +129,37 @@
                 </Border>
             </Grid>
 
-            <Grid Grid.Row="1" Grid.Column="1">
+            <Grid Grid.Row="0" Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="Auto"/>
                     <RowDefinition/>
                 </Grid.RowDefinitions>
 
-                <Border Style="{x:Null}" Height="32" VerticalAlignment="Center">
+                <Border Height="32" VerticalAlignment="Center">
                     <TextBlock Style="{StaticResource jp_TextBlockHeader}" VerticalAlignment="Center">センサー情報</TextBlock>
                 </Border>
 
-                <ListView Grid.Row="1" Margin="0,15,0,10" ItemsSource="{Binding Notes}">
-                    <ListView.ItemContainerStyle>
-                        <Style TargetType="ListViewItem">
-                            <Setter Property="HorizontalContentAlignment"  Value="Stretch"/>
-                            <Setter Property="VerticalContentAlignment"  Value="Stretch"/>
-                            <Setter Property="Margin"  Value="0"/>
-                            <Setter Property="Padding"  Value="0"/>
-                            <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
-                            <Setter Property="BorderThickness" Value="1,0,1,1"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate>
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="true">
-                                                <Setter Property="BorderBrush" Value="#FF88CBEB"/>
-                                                <Setter Property="Visibility" Value="Visible"/>
-                                                <Setter Property="Background" Value="Transparent"/>
-                                            </Trigger>
-                                            <Trigger Property="Height" Value="Auto">
-                                                <Setter Property="MinHeight" Value="20"/>
-                                            </Trigger>
-                                            <Trigger Property="IsEnabled" Value="false">
-                                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
-                                            </Trigger>
-                                        </ControlTemplate.Triggers>
-                                    </ControlTemplate>
-                                </Setter.Value>
-                            </Setter>
-                        </Style>
-                    </ListView.ItemContainerStyle>
-                    <ListView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid VerticalAlignment="Stretch" HorizontalAlignment="Stretch"
-                                        Background="{Binding Converter={StaticResource ColorConvert}}">
+                <DataGrid Grid.Row="1" Margin="0,15,0,10" ItemsSource="{Binding Notes}">
+                    <DataGrid.Columns>
+                        <DataGridTemplateColumn Header="検出日時">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock  VerticalAlignment="Center"  Text="{Binding Pro1Text}" 
+                                            HorizontalAlignment="Center" Margin="10,0"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
 
-                                <Grid.Resources>
-                                    <Style TargetType="Border">
-                                        <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
-                                        <Setter Property="BorderThickness" Value="0,0,1,0"/>
-                                    </Style>
-                                    <Style TargetType="TextBlock">
-                                        <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
-                                        <Setter Property="Margin" Value="15,0"/>
-                                        <Setter Property="VerticalAlignment" Value="Center"/>
-                                        <Setter Property="TextWrapping" Value="Wrap"/>
-                                    </Style>
-                                    <Style TargetType="TextBox">
-                                        <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
-                                        <Setter Property="BorderBrush" Value="Transparent"/>
-                                        <Setter Property="Margin" Value="15,0"/>
-                                        <Setter Property="VerticalAlignment" Value="Center"/>
-                                        <Setter Property="VerticalContentAlignment" Value="Bottom"/>
-                                        <Setter Property="BorderThickness" Value="1"/>
-                                        <Setter Property="TextWrapping" Value="Wrap"/>
-                                    </Style>
-                                    <Style TargetType="CheckBox">
-                                        <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
-                                        <Setter Property="Margin" Value="15,0"/>
-                                        <Setter Property="VerticalAlignment" Value="Center"/>
-                                        <Setter Property="MinWidth" Value="30"/>
-                                    </Style>
-                                </Grid.Resources>
+                        <DataGridTemplateColumn Header="アラーム名" Width="*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock  VerticalAlignment="Center"  Text="{Binding Pro2}" Margin="10,0"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
 
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="2*"/>
-                                    <ColumnDefinition Width="3*"/>
-                                </Grid.ColumnDefinitions>
-
-                                <Border Grid.Column="0">
-                                    <TextBlock Text="{Binding Pro1Text}" TextAlignment="Center"/>
-                                </Border>
-                                <Border Grid.Row="0" Grid.Column="1">
-                                    <TextBlock Grid.Column="1" Text="{Binding Pro2}"/>
-                                </Border>
-                            </Grid>
-                        </DataTemplate>
-                    </ListView.ItemTemplate>
-                </ListView>
+                    </DataGrid.Columns>
+                </DataGrid>
             </Grid>
         </Grid>
     </Grid>

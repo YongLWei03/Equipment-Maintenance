@@ -3,3 +3,7 @@
 ################################################################################
 
 /EquipmentMaintenance/bin/Debug
+/EquipmentMaintenance/obj/Debug
+/EquipmentMaintenance/obj/Debug
+*.suo
+/.vs/EquipmentMaintenance/v15/.suo

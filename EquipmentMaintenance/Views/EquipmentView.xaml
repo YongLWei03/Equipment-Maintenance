@@ -4,8 +4,6 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    xmlns:local="using:EquipmentMaintenance.Views"
-    xmlns:prismMvvm="using:Prism.Windows.Mvvm"
     mc:Ignorable="d">
 
     <Grid>
@@ -96,81 +94,47 @@
             <TextBox Grid.Row="6" Grid.Column="3" Text="作業中" IsReadOnly="True"/>
         </Grid>
 
-        <DataGrid x:Name="datagrid" Grid.Row="3" ItemsSource="{Binding CheckList}">
-            <DataGrid.Resources>
-                <Style TargetType="DataGrid">
-                    <Setter Property="Background" Value="Transparent"/>
-                    <Setter Property="GridLinesVisibility" Value="None"/>
-                    <Setter Property="CanUserSortColumns" Value="True"/>
-                    <Setter Property="AutoGenerateColumns" Value="False"/>
-                    <Setter Property="CanUserAddRows" Value="False"/>
-                    <Setter Property="CanUserDeleteRows" Value="False"/>
-                    <Setter Property="SelectionMode" Value="Extended"/>
-                    <Setter Property="IsEnabled" Value="True"/>
-                    <Setter Property="IsReadOnly" Value="True"/>
-                    <Setter Property="IsSynchronizedWithCurrentItem" Value="True"/>
-                    <Setter Property="BorderThickness" Value="1"/>
-                    <Setter Property="BorderBrush" Value="{StaticResource jp_Border}"/>
-                    <Setter Property="HeadersVisibility" Value="Column"/>
-                    <Setter Property="VerticalContentAlignment" Value="Center"/>
-                    <Setter Property="SelectionUnit" Value="FullRow"/>
-                    <Setter Property="CellStyle">
-                        <Setter.Value>
-                            <Style TargetType="DataGridCell">
-                                <Setter Property="BorderThickness" Value="0,0,0.5,0.5"/>
-                                <Setter Property="Margin" Value="0"/>
-                                <Setter Property="Padding" Value="0"/>
-                                <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
-                                <Setter Property="VerticalAlignment" Value="Center"/>
-                            </Style>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-
-                <Style TargetType="DataGridColumnHeader" >
-                    <Setter Property="Height" Value="32"/>
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate>
-                                <Border Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" 
-                                        Style="{StaticResource jp_BorderTextBlock}" 
-                                        BorderThickness="0,0,1,0" BorderBrush="{StaticResource jp_AltBorder}">
-                                    <TextBlock Style="{StaticResource jp_TextBlockInBorder}" Text="{Binding}"
-                                        HorizontalAlignment="Center"/>
-                                </Border>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-
-                <Style TargetType="DataGridRow">
-                    <Setter Property="Background" Value="{Binding Converter={StaticResource ColorConvert}}"/>
-                    <Style.Triggers>
-                        <Trigger Property="IsSelected" Value="True">
-                            <Setter Property="Background" Value="{Binding}"/>
-                            <Setter Property="Foreground" Value="{Binding}"/>
-                        </Trigger>
-                    </Style.Triggers>
-                </Style>
-            </DataGrid.Resources>
-
+        <DataGrid Grid.Row="3" ItemsSource="{Binding CheckList}">
             <DataGrid.Columns>
-                <DataGridTextColumn Header="No." Binding="{ Binding Path=No }" MinWidth="150"/>
-                <DataGridTextColumn Header="点検項目" Binding="{Binding Path=Pro1}" MinWidth="120"/>
-                <DataGridTextColumn Header="点検説明" Binding="{Binding Path=Pro2}" MinWidth="120"/>
-
-                <DataGridTemplateColumn MinWidth="150" Header="結果">
+                <DataGridTemplateColumn Header="No">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox IsChecked="{Binding Pro3}" Content="OK"/>
+                            <TextBlock  VerticalAlignment="Center" HorizontalAlignment="Center"  
+                                        Text="{Binding No}" Margin="10,0"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
 
-                <DataGridTemplateColumn  MinWidth="150">
+                <DataGridTemplateColumn Header="点検項目">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <CheckBox IsChecked="{Binding Pro4}" Content="NG"/>
+                            <TextBlock  VerticalAlignment="Center"  Text="{Binding Pro1}" Margin="10,0"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="点検説明">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <TextBlock  VerticalAlignment="Center"  Text="{Binding Pro2}" Margin="10,0"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                
+                <DataGridTemplateColumn Header="結果">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox IsChecked="{Binding Pro3}" VerticalContentAlignment="Center"  
+                                      Content="OK" Margin="10,0" HorizontalContentAlignment="Center"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <CheckBox VerticalContentAlignment="Center" IsChecked="{Binding Pro4}" 
+                                      Content="NG" Margin="10,0" HorizontalContentAlignment="Center"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>
@@ -178,7 +142,8 @@
                 <DataGridTemplateColumn  Width="*">
                     <DataGridTemplateColumn.CellTemplate>
                         <DataTemplate>
-                            <TextBox Background="Transparent" BorderThickness="0"/>
+                            <TextBox Background="Transparent" VerticalContentAlignment="Center"  
+                                     BorderThickness="0" Margin="10,0"/>
                         </DataTemplate>
                     </DataGridTemplateColumn.CellTemplate>
                 </DataGridTemplateColumn>

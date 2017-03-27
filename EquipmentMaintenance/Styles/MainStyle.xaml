@@ -4,13 +4,17 @@
 
     <SolidColorBrush x:Key="jp_Backgroud" Color="#697D83"/>
     <SolidColorBrush x:Key="jp_AltBackgroud" Color="#F9F9F9"/>
-    <SolidColorBrush x:Key="jp_AltBorder" Color="#DDD"/>
+    <SolidColorBrush x:Key="jp_SelectedBackgroud" Color="#f0f9fc"/>
+    
     <SolidColorBrush x:Key="jp_Border" Color="#697D83"/>
+    <SolidColorBrush x:Key="jp_AltBorder" Color="#DDD"/>
+    
     <SolidColorBrush x:Key="jp_Foreground" Color="#333"/>
 
+<!--Chart-->
     <SolidColorBrush x:Key="jp_ChartLimitLine" Color="#B4B282"/>
 
-
+<!--Button-->
     <SolidColorBrush x:Key="jp_ButtonBackgroud" Color="#30b2d9"/>
     <SolidColorBrush x:Key="jp_ButtonBorder" Color="#46b8da"/>
     <SolidColorBrush x:Key="jp_ButtonHover" Color="#5bc0de"/>
@@ -19,16 +23,13 @@
     <Style TargetType="Border" x:Key="jp_BorderTextBlock">
         <Setter Property="Background" Value="{StaticResource jp_Backgroud}"/>
     </Style>
-    
-    <!--<Style TargetType="Border" x:Key="jp_BorderLine">
-        <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
-        <Setter Property="BorderThickness" Value="0.5"/>
-        <Setter Property="Height" Value="1"/>
-    </Style>-->
 
-    <Style TargetType="TextBlock" x:Key="jp_TextBlockInBorder">
-        <Setter Property="Foreground" Value="White"/>
+    <Style TargetType="TextBlock">
         <Setter Property="FontSize" Value="15"/>
+    </Style>
+
+    <Style TargetType="TextBlock" x:Key="jp_TextBlockInBorder" BasedOn="{StaticResource {x:Type TextBlock}}">
+        <Setter Property="Foreground" Value="White"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="5,0"/>
     </Style>
@@ -85,5 +86,72 @@
                 
             </Setter.Value>
         </Setter>
+    </Style>
+
+    <Style TargetType="DataGrid">
+        <Setter Property="AlternatingRowBackground" Value="{StaticResource jp_AltBackgroud}"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="GridLinesVisibility" Value="None"/>
+        <Setter Property="CanUserSortColumns" Value="True"/>
+        <Setter Property="AutoGenerateColumns" Value="False"/>
+        <Setter Property="CanUserAddRows" Value="False"/>
+        <Setter Property="CanUserDeleteRows" Value="False"/>
+        <Setter Property="SelectionMode" Value="Extended"/>
+        <Setter Property="IsEnabled" Value="True"/>
+        <Setter Property="IsReadOnly" Value="True"/>
+        <Setter Property="IsSynchronizedWithCurrentItem" Value="True"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="BorderBrush" Value="{StaticResource jp_Border}"/>
+        <Setter Property="HeadersVisibility" Value="Column"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="SelectionUnit" Value="FullRow"/>
+        <Setter Property="CellStyle">
+            <Setter.Value>
+                <Style TargetType="DataGridCell">
+                    <Setter Property="BorderThickness" Value="0,0,0.5,0.5"/>
+                    <Setter Property="Margin" Value="0"/>
+                    <Setter Property="Padding" Value="0"/>
+                    <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
+                    <Setter Property="VerticalAlignment" Value="Stretch"/>
+                    <Setter Property="MinWidth" Value="90"/>
+                    <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="Background" Value="{StaticResource jp_SelectedBackgroud}"/>
+                            <Setter Property="FontWeight" Value="Bold"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="DataGridColumnHeader">
+        <Setter Property="Height" Value="32"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <Border Grid.Row="0" Grid.Column="2" HorizontalAlignment="Stretch" 
+                                        Style="{StaticResource jp_BorderTextBlock}" 
+                                        BorderThickness="0,0,1,0" BorderBrush="{StaticResource jp_AltBorder}">
+                        <TextBlock Style="{StaticResource jp_TextBlockInBorder}" Text="{Binding}"
+                                        HorizontalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style TargetType="DataGridRow">
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Height" Value="40"/>
+        <Style.Triggers>
+            <Trigger Property="IsSelected" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource jp_Border}"/>
+            </Trigger>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="{StaticResource jp_SelectedBackgroud}"/>
+            </Trigger>
+        </Style.Triggers>
     </Style>
 </ResourceDictionary>

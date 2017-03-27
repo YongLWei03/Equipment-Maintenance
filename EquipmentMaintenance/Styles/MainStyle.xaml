@@ -1,7 +1,6 @@
-﻿<ResourceDictionary
-    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
-    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:EquipmentMaintenance">
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:EquipmentMaintenance.App">
 
     <SolidColorBrush x:Key="jp_Backgroud" Color="#697D83"/>
     <SolidColorBrush x:Key="jp_AltBackgroud" Color="#F9F9F9"/>
@@ -17,18 +16,17 @@
 
     <Style TargetType="Border">
         <Setter Property="Background" Value="{StaticResource jp_Backgroud}"/>
-        <Setter Property="Margin" Value="0,0,15,10"/>
     </Style>
     
     <Style TargetType="Border" x:Key="jp_BorderLine">
         <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
         <Setter Property="BorderThickness" Value="0.5"/>
         <Setter Property="Height" Value="1"/>
-        <Setter Property="Margin" Value="0,0,0,10"/>
     </Style>
 
     <Style TargetType="TextBlock" x:Key="jp_TextBlockInBorder">
         <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontSize" Value="15"/>
         <Setter Property="VerticalAlignment" Value="Center"/>
         <Setter Property="Margin" Value="5,0"/>
     </Style>
@@ -49,7 +47,7 @@
         <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
         <Setter Property="BorderThickness" Value="0,0,0,0.5"/>
         <Setter Property="Padding" Value="6"/>
-        <Setter Property="Margin" Value="0,0,25,10"/>
+        <Setter Property="FontSize" Value="15"/>
         <Setter Property="MinWidth" Value="90"/>
     </Style>
 
@@ -58,15 +56,15 @@
         <Setter Property="Margin" Value="0,0,20,10"/>
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="Height" Value="32"/>
+        <Setter Property="FontSize" Value="15"/>
         <Setter Property="BorderThickness" Value="0.2"/>
+        <Setter Property="Padding" Value="15,5"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="Button">
-                    <Border BorderBrush="{StaticResource jp_ButtonBorder}" CornerRadius="2" >
+                    <Border x:Name="buttonBorder" BorderBrush="{StaticResource jp_ButtonBorder}" CornerRadius="2" >
                         <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
-                                          BorderThickness="{TemplateBinding BorderThickness}"
-                                          Padding="15,0"
-                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/> 
+                                          VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         <VisualStateManager.VisualStateGroups>
                             <VisualStateGroup x:Name="CommonStates">
                                 
@@ -94,7 +92,26 @@
                             <SolidColorBrush x:Name="backgroudButton" Color="#31b0d5"/>
                         </Border.Background>
                     </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="buttonBorder" Property="BorderBrush" Value="#269abc"/>
+                            <Setter TargetName="buttonBorder" Property="Background" Value="#269abc"/>
+                        </Trigger>
+                        <Trigger Property="IsFocused" Value="True">
+                            <Setter TargetName="buttonBorder" Property="BorderBrush" Value="#0F8DB3"/>
+                            <Setter TargetName="buttonBorder" Property="Background" Value="#269abc"/>
+                        </Trigger>
+                        <Trigger Property="IsDefault" Value="True">
+                            <Setter TargetName="buttonBorder" Property="BorderBrush" Value="#269abc"/>
+                            <Setter TargetName="buttonBorder" Property="Background" Value="#269abc"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="buttonBorder" Property="Background" Value="#0F8DB3"/>
+                            <Setter TargetName="buttonBorder" Property="BorderBrush" Value="#269abc"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
                 </ControlTemplate>
+                
             </Setter.Value>
         </Setter>
     </Style>

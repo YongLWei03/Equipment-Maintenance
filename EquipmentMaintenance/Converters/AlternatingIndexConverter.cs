@@ -1,7 +1,7 @@
 ﻿using System;
-using Windows.UI;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Media;
+using System.Globalization;
+using System.Windows.Data;
+using System.Windows.Media;
 
 namespace EquipmentMaintenance
 {
@@ -11,12 +11,12 @@ namespace EquipmentMaintenance
         public SolidColorBrush Even { get; set; } = new SolidColorBrush(Colors.White);
         public SolidColorBrush Odd { get; set; } = ColorContvertor.GetSolidColorBrush("#F9F9F9F9");
 
-        public object Convert(object value, Type targetType, object parameter, string language)
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return (_index++ % 2 == 0 ? Even : Odd);
         }
 
-        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

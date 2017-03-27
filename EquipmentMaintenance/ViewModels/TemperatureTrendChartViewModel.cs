@@ -1,10 +1,9 @@
 ﻿using LiveCharts;
 using LiveCharts.Configurations;
-using LiveCharts.Uwp;
+using LiveCharts.Wpf;
 using Prism.Mvvm;
 using System;
-using Windows.UI;
-using Windows.UI.Xaml.Media;
+using System.Windows.Media;
 
 namespace EquipmentMaintenance.ViewModels
 {

@@ -136,17 +136,17 @@
                                 </Grid.Resources>
 
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition MinWidth="110" Width="Auto" />
+                                    <ColumnDefinition MinWidth="110" Width="Auto" />
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Border Grid.Column="0">
                                     <CheckBox  IsChecked="{Binding Pro3}" VerticalContentAlignment="Center"  
-                                      Content="OK" Margin="10,0" HorizontalContentAlignment="Center"/>
+                                      Content="OK" Margin="10,0"/>
                                 </Border>
                                 <Border  Grid.Column="1">
                                     <CheckBox VerticalContentAlignment="Center" IsChecked="{Binding Pro4}" 
-                                      Content="NG" Margin="10,0" HorizontalContentAlignment="Center"/>
+                                      Content="NG" Margin="10,0"/>
                                 </Border>
                                 <Border Grid.Column="2">
                                     <TextBox Background="Transparent" BorderThickness="0" VerticalContentAlignment="Center" Margin="10,0"/>

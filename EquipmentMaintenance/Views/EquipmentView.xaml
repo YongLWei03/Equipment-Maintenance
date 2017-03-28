@@ -142,21 +142,18 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Border Grid.Column="0">
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                        <CheckBox  IsChecked="{Binding Pro3}" VerticalContentAlignment="Center"  
-                                            Content="" HorizontalAlignment="Center"/>
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">OK</TextBlock>
-                                    </StackPanel>
+                                    <CheckBox IsChecked="{Binding Pro3}" Content="OK" 
+                                              VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                              HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                                 </Border>
                                 <Border  Grid.Column="1">
-                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                                        <CheckBox VerticalContentAlignment="Center" IsChecked="{Binding Pro4}" 
-                                            Content="" HorizontalAlignment="Center" />
-                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">NG</TextBlock>
-                                    </StackPanel>
+                                    <CheckBox IsChecked="{Binding Pro4}" Content="NG" 
+                                              VerticalAlignment="Center" HorizontalAlignment="Center" 
+                                              HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
                                 </Border>
                                 <Border Grid.Column="2">
-                                    <TextBox Background="Transparent" BorderThickness="0" VerticalContentAlignment="Center" Margin="10,0"/>
+                                    <TextBox Background="Transparent" BorderThickness="0" 
+                                             VerticalContentAlignment="Center"/>
                                 </Border>
                             </Grid>
                         </DataTemplate>

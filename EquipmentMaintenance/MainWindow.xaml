@@ -9,7 +9,7 @@
         WindowState="Maximized"
         DataContext="{Binding Path=MainWindowVM, Source={StaticResource viewModelLocator}}"
         Title="設備保全管理システム">
-    <Grid Margin="15">
+    <Grid Margin="15,15,15,5">
         <Grid Visibility="{Binding IsEquipmentVisible, Converter={StaticResource BoolToVis}}">
             <local:EquipmentView DataContext="{Binding Equipment}"/>
         </Grid>

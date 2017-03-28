@@ -132,6 +132,7 @@
                                         <Setter Property="Padding" Value="0"/>
                                         <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
                                         <Setter Property="VerticalAlignment" Value="Stretch"/>
+                                        <Setter Property="HorizontalAlignment" Value="Stretch"/>
                                     </Style>
                                 </Grid.Resources>
 
@@ -141,12 +142,18 @@
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Border Grid.Column="0">
-                                    <CheckBox  IsChecked="{Binding Pro3}" VerticalContentAlignment="Center"  
-                                      Content="OK" HorizontalAlignment="Center"/>
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <CheckBox  IsChecked="{Binding Pro3}" VerticalContentAlignment="Center"  
+                                            Content="" HorizontalAlignment="Center"/>
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">OK</TextBlock>
+                                    </StackPanel>
                                 </Border>
                                 <Border  Grid.Column="1">
-                                    <CheckBox VerticalContentAlignment="Center" IsChecked="{Binding Pro4}" 
-                                      Content="NG" HorizontalAlignment="Center" />
+                                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                                        <CheckBox VerticalContentAlignment="Center" IsChecked="{Binding Pro4}" 
+                                            Content="" HorizontalAlignment="Center" />
+                                        <TextBlock HorizontalAlignment="Center" VerticalAlignment="Center">NG</TextBlock>
+                                    </StackPanel>
                                 </Border>
                                 <Border Grid.Column="2">
                                     <TextBox Background="Transparent" BorderThickness="0" VerticalContentAlignment="Center" Margin="10,0"/>

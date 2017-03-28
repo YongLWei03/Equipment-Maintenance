@@ -107,7 +107,7 @@
                         </lvc:CartesianChart.Resources>
 
                         <lvc:CartesianChart.AxisX>
-                            <lvc:Axis IsMerged="False" LabelFormatter="{Binding XFormatter}">
+                            <lvc:Axis IsMerged="False" LabelsRotation="30" LabelFormatter="{Binding XFormatter}">
                                 <lvc:Axis.Separator>
                                     <lvc:Separator IsEnabled="True" Step="{Binding AxisXStep}"/>
                                 </lvc:Axis.Separator>

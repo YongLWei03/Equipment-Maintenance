@@ -96,6 +96,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Applications\Bootstrapper.cs" />
+    <Compile Include="Helpers\InkInputHelper.cs" />
     <Compile Include="MainWindowViewModel.cs" />
     <Compile Include="Applications\ViewModelLocator.cs" />
     <Compile Include="ViewModels\EquipmentDetailViewModel.cs" />

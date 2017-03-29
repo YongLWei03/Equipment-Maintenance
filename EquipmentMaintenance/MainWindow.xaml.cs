@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 
 namespace EquipmentMaintenance
 {
@@ -10,6 +11,18 @@ namespace EquipmentMaintenance
         public MainWindow()
         {
             InitializeComponent();
+            Loaded += MainWindow_Loaded;
+
+            InkInputHelper.DisableWPFTabletSupport();
+        }
+
+        private void MainWindow_Loaded(object sender, RoutedEventArgs e)
+        {
+            //Windows 8 API to enable touch keyboard to monitor for focus tracking in this WPF application
+            InputPanelConfiguration cp = new InputPanelConfiguration();
+            IInputPanelConfiguration icp = cp as IInputPanelConfiguration;
+            if (icp != null)
+                icp.EnableFocusTracking();
         }
     }
 }

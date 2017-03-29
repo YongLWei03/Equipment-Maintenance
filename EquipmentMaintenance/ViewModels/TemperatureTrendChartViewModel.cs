@@ -70,7 +70,10 @@ namespace EquipmentMaintenance
                                 new MeasureModel { Minutes = 1260, Value = 40.0 },
                                 new MeasureModel { Minutes = 1270, Value = 40.9 },
                                 new MeasureModel { Minutes = 1280, Value = 40.1 }
-                            }, Fill = new SolidColorBrush(Colors.Transparent)
+                            },
+                            Fill = new SolidColorBrush(Colors.Transparent),
+                            PointGeometry = DefaultGeometries.Square,
+                            LineSmoothness = 0
                         },
                         new LineSeries {
                             Title = "モータ1温度",
@@ -94,7 +97,10 @@ namespace EquipmentMaintenance
                                 new MeasureModel { Minutes = 1260, Value = 55.2 },
                                 new MeasureModel { Minutes = 1270, Value = 55.3 },
                                 new MeasureModel { Minutes = 1280, Value = 55.4 }
-                            }, Fill = new SolidColorBrush(Colors.Transparent)
+                            },
+                            Fill = new SolidColorBrush(Colors.Transparent),
+                            PointGeometry = DefaultGeometries.Circle,
+                            LineSmoothness = 0
                         },
                         new LineSeries {
                             Title = "モータ2温度",
@@ -118,7 +124,10 @@ namespace EquipmentMaintenance
                                 new MeasureModel { Minutes = 1260, Value = 64.1 },
                                 new MeasureModel { Minutes = 1270, Value = 62.4 },
                                 new MeasureModel { Minutes = 1280, Value = 63.0 }
-                            }, Fill = new SolidColorBrush(Colors.Transparent)
+                            },
+                            Fill = new SolidColorBrush(Colors.Transparent),
+                            PointGeometry = DefaultGeometries.Triangle,
+                            LineSmoothness = 0
                         }
                     };
                 }

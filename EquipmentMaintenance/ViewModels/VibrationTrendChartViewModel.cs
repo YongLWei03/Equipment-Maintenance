@@ -69,7 +69,10 @@ namespace EquipmentMaintenance
                                 new MeasureModel { Minutes = 1260, Value = 18500 },
                                 new MeasureModel { Minutes = 1270, Value = 15000 },
                                 new MeasureModel { Minutes = 1280, Value = 15001 }
-                            }, Fill = new SolidColorBrush(Colors.Transparent)
+                            },
+                            Fill = new SolidColorBrush(Colors.Transparent),
+                            PointGeometry = DefaultGeometries.Square,
+                            LineSmoothness = 0
                         },
                         new LineSeries {
                             Title = "モータ２振動",
@@ -93,7 +96,10 @@ namespace EquipmentMaintenance
                                 new MeasureModel { Minutes = 1260, Value = 20001 },
                                 new MeasureModel { Minutes = 1270, Value = 20000 },
                                 new MeasureModel { Minutes = 1280, Value = 20001 }
-                            }, Fill = new SolidColorBrush(Colors.Transparent)
+                            },
+                            Fill = new SolidColorBrush(Colors.Transparent),
+                            PointGeometry = DefaultGeometries.Circle,
+                            LineSmoothness = 0
                         }
                     };
                 }

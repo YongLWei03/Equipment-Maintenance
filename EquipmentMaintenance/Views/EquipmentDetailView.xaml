@@ -76,8 +76,8 @@
 
         <Grid Grid.Row="3">
             <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="7*"/>
-                <ColumnDefinition Width="3*"/>
+                <ColumnDefinition Width="6*"/>
+                <ColumnDefinition Width="4*"/>
             </Grid.ColumnDefinitions>
 
             <Grid Grid.Row="0" Grid.Column="0">
@@ -153,7 +153,7 @@
                         <DataGridTemplateColumn Header="アラーム名" Width="*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock  VerticalAlignment="Center"  Text="{Binding Pro2}" Margin="10,0"/>
+                                    <TextBlock  VerticalAlignment="Center" Text="{Binding Pro2}" Margin="10,0"/>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

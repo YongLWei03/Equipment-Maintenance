@@ -137,8 +137,8 @@
                                 </Grid.Resources>
 
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition MinWidth="110" Width="Auto" />
-                                    <ColumnDefinition MinWidth="110" Width="Auto" />
+                                    <ColumnDefinition MinWidth="60" Width="60" />
+                                    <ColumnDefinition MinWidth="60" Width="60" />
                                     <ColumnDefinition/>
                                 </Grid.ColumnDefinitions>
                                 <Border Grid.Column="0">

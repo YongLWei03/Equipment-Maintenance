@@ -25,7 +25,8 @@
     </Style>
 
     <Style TargetType="TextBlock">
-        <Setter Property="FontSize" Value="15"/>
+        <!-- Button Caption, Item Label, Table Header, Table Item -->
+        <Setter Property="FontSize" Value="20"/>
     </Style>
 
     <Style TargetType="TextBlock" x:Key="jp_TextBlockInBorder" BasedOn="{StaticResource {x:Type TextBlock}}">
@@ -37,12 +38,14 @@
     <Style TargetType="TextBlock" x:Key="jp_TextBlockTitle" BasedOn="{StaticResource jp_TextBlockInBorder}">
         <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
         <Setter Property="FontWeight" Value="Bold"/>
-        <Setter Property="FontSize" Value="24"/>
+        <!-- Screen Caption -->
+        <Setter Property="FontSize" Value="44"/>
     </Style>
 
     <Style TargetType="TextBlock" x:Key="jp_TextBlockHeader" BasedOn="{StaticResource jp_TextBlockInBorder}">
         <Setter Property="Foreground" Value="{StaticResource jp_Foreground}"/>
-        <Setter Property="FontSize" Value="20"/>
+        <!-- Table Caption -->
+        <Setter Property="FontSize" Value="25"/>
     </Style>
 
     <Style TargetType="TextBox">
@@ -50,7 +53,8 @@
         <Setter Property="BorderBrush" Value="{StaticResource jp_AltBorder}"/>
         <Setter Property="BorderThickness" Value="0,0,0,1"/>
         <Setter Property="Padding" Value="6"/>
-        <Setter Property="FontSize" Value="15"/>
+        <!-- Item Value -->
+        <Setter Property="FontSize" Value="20"/>
         <Setter Property="MinWidth" Value="90"/>
     </Style>
 
@@ -59,7 +63,8 @@
         <Setter Property="Margin" Value="0,0,20,10"/>
         <Setter Property="Width" Value="Auto"/>
         <Setter Property="Height" Value="32"/>
-        <Setter Property="FontSize" Value="15"/>
+        <!-- Item Value
+        <Setter Property="FontSize" Value="65"/> -->
         <Setter Property="BorderThickness" Value="0.2"/>
         <Setter Property="Padding" Value="15,5"/>
         <Setter Property="Template">
